@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>پەرووتکخانا گشتییا کوردی</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album-rtl/">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+
+
+  <!-- Bootstrap core CSS -->
+  <!-- <link href="../assets/dist/css/bootstrap.rtl.min.css" rel="stylesheet"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+
+    a {
+      text-decoration: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+
+
+      body {
+        background-image: url('../images/logo.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-size: 100%;
+
+      }
+    }
+
+
+    /* image-book style */
+    .maincontainer {
+      position: relative;
+      padding: 10px 0px 300px;
+    }
+
+    .thecard {
+      position: absolute;
+      width: 100%;
+      height: 90%;
+      transform-style: preserve-3d;
+      transition: all 2.5s ease;
+    }
+
+    .thecard:hover {
+      transform: rotateY(180deg);
+    }
+
+    .thefront {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      background: white;
+      color: #333;
+      border-radius: 20px;
+    }
+
+    .theback {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      background: white;
+      color: #333;
+      border-radius: 20px;
+      transform: rotateY(180deg);
+    }
+
+    .b {
+      margin-right: 85px;
+      width: 50%;
+      border-radius: 10px;
+    }
+
+
+
+    /* Search bar */
+    #searchbar {
+      padding: 3px 10px;
+      font-size: 18px;
+      border-radius: 15px;
+      border: solid grey 1px;
+      margin: 10px 70px 0px 0px;
+      display: block;
+    }
+
+    input[type=text] {
+      width: 60%;
+      -webkit-transition: width 0.15s ease-in-out;
+      transition: width 0.15s ease-in-out;
+    }
+
+    /* When the input field gets focus,
+        change its width to 100% */
+    input[type=text]:focus {
+      width: 60%;
+    }
+
+    #list {
+      font-size: 1.5em;
+      display: block;
+    }
+
+    .animals {
+      margin: 10px 30px 0px 0px;
+      display: block;
+    }
+
+    p {
+      text-align: center;
+    }
+
+
+    /* kortya pertoka details */
+
+    .wrap {
+      /TO MAKE THEM SLIDE FROM THE LEFT/ position: relative;
+      -webkit-animation: moving 1.2s 1 ease;
+      animation: moving 1.2s 1 ease;
+      -webkit-animation-delay: 0s;
+      animation-delay: 0s;
+    }
+
+    @-webkit-keyframes moving {
+      from {
+        left: -100px;
+        opacity: 0.2;
+      }
+
+      to {
+        left: 0px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes moving {
+      from {
+        left: -100px;
+        opacity: 0.2;
+      }
+
+      to {
+        left: 0px;
+        opacity: 1;
+      }
+    }
+
+    .head {
+      list-style: none;
+      border: 0px solid coral;
+      border-right-color: #5584AC;
+      border-right-width: 20px;
+      cursor: pointer;
+      font-size: 1.2em;
+      background: #f0f0f0;
+      padding: 5px 5px 5px 20px;
+      margin: 25px auto;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-box-shadow: 3px 4px 8px #bbbbbb;
+      box-shadow: 3px 4px 8px #bbbbbb;
+      border-radius: 10px 10px 10px 10px;
+      -webkit-transition: all .35s;
+      -o-transition: all .35s;
+      transition: all .35s;
+    }
+
+    details[open] summary {
+      background: #5584AC;
+      -webkit-box-shadow: 0px 0px 0px #bbbbbb;
+      box-shadow: 0px 0px 0px #bbbbbb;
+      color: #ecf9f2;
+      -webkit-transition: all .35s;
+      -o-transition: all .35s;
+      transition: all .35s;
+      border-right-width: 0px;
+      border-bottom: 0px solid white;
+      border-radius: 10px 10px 10px 10px;
+    }
+
+    details[open] {
+      background: White;
+      -webkit-box-shadow: 3px 4px 8px #bbbbbb;
+      box-shadow: 3px 4px 8px #bbbbbb;
+      border-radius: 10px 10px 10px 10px;
+    }
+
+    .More-details {
+      text-align: center;
+      padding: 0px 35px 20px 25px;
+      font-family: san-serif, Helvetica;
+      color: #0e0e0e;
+      font-size: 15pt;
+      line-height: 1.5;
+    }
+
+    details[open] .More-details {
+      background: white;
+      padding-left: 50px;
+      border-radius: 0 0 10px 10px;
+      -webkit-transition: all .5s;
+      -o-transition: all .5s;
+      transition: all .5s;
+
+    }
+
+    /END OF PARAGRAPH/::marker,
+    summary::-webkit-details-marker {
+      color: #5584AC;
+      -webkit-transition: all .4s;
+      -o-transition: all .4s;
+      transition: all .4s;
+    }
+
+    details[open]> ::marker,
+    details[open]>summary::-webkit-details-marker {
+      -webkit-transition: all .4s;
+      -o-transition: all .4s;
+      transition: all .4s;
+      color: #ecf9f2;
+      font-size: 25px;
+
+    }
+
+    hr{
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+  </style>
+
+  <script>
+    // JavaScript code for search bar
+    function search_animal() {
+      let input = document.getElementById('searchbar').value
+      input = input.toLowerCase();
+      let x = document.getElementsByClassName('animals');
+
+      for (i = 0; i < x.length; i++) {
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+          x[i].style.display = "none";
+        } else {
+          x[i].style.display = "block";
+        }
+      }
+    }
+  </script>
+
+</head>
+
+
+<body>
+
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">دەربارەی ئەکادیمیا قوتابی</h4>
+            <p class="text-muted">ئەکادیمیا قوتابی-ئونلاین یا هاتیە دروستکرن بو پتر خزمەتکرنا قوتابی ب بەرهەفکرنا هەمی پسیارێن ویزاری و پسیارێن یونێت و بابەتا و هەروسا شلوڤەکرنا بابەتان ب شێوازێ ڤیدیو و نڤیسین دا قوتابی پێویستی هیچ مەلزەمەکێ نەبیت.
+              ئەڤ مەلزەمە یێت هاتینە دانان ب رێکا باشترین و زیرەکترین ماموستایا. هیڤیا مە ئەوە خزمەتا قوتابیا بکەن.</p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">پەیوەندیێ ب مەبکە</h4>
+            <ul class="list-unstyled">
+              <li><a href="https://www.facebook.com/qotabi.official/" target="_blank" class="text-white">فەیسبوک</a></li>
+              <li><a href="https://www.instagram.com/qotabi.official/" target="_blank" class="text-white">ئینستگرام</a></li>
+              <li><a href="https://www.youtube.com/channel/UCpRMAc1wqRzEVT3yDDvS16A" target="_blank" class="text-white">یوتیوب</a></li>
+              <li><a href="mailto:fakher.alzibari@valpo.edu" class="text-white">ئیمێل</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="index.html" class="navbar-brand d-flex align-items-center">
+          <img src="../images/Web-Logo.png" alt="" width="40px" height="40px;">
+          <strong>پەرووتکخانا گشتییا کوردی</strong>
+
+
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!--  =====================================      ew code ez de li vere zede kem ======================================== -->
+  <main>
+
+    <input class="TOP1" id="searchbar" onkeyup="search_animal()" type="text" name="search" placeholder="Search Books">
+
+    <div class="row">
+      <div class="col-lg-3 col-md-5">
+
+        <li class="animals">
+          <hr>
+          <p>My name is red</p>
+          <hr>
+          <div class="maincontainer">
+            <div class="thecard">
+              <div class="thefront">
+                <img class="b" src="Chirok-images/1.jpeg" alt="">
+              </div>
+              <div class="theback">
+                <img class="b" src="Chirok-images/1b.jpeg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="wrab">
+            <details>
+              <summary class="head">کورتیا پەڕتووکێ</summary>
+              <p class="More-details">
+                ژلایێ : حەربیا ئەیوب محمود
+                <br><br>
+                ناڤێ من ســووره‌, چیروكه‌كا باڵكێشا نڤیسه‌رێ تورك ئورهان پاموكی یه‌. ئه‌و رێكا نڤیسه‌ری هه‌لبژاردی كو چیروكا خۆ پێ ڤه‌گێڕیت نه‌ یا ئاسایی یه‌, ژ لایێ گه‌له‌ك چیروك ڤه‌گێران ڤه‌ ژوان گه‌له‌ك د مری, بێ رح ئان به‌رجه‌سته‌ هاتیه‌
+                ڤه‌گێڕان.
+                ناڤێ من ســووره‌ حه‌ژێكرنه‌كا مه‌زن یا ب ده‌ست خۆڤه‌ ئینای هه‌ر ژ ساڵا 1998, و هه‌روه‌سا ب بوورینا ساڵان په‌رتووك یاهاتیه‌ وه‌رگێران بۆ پتر ژ 60 زمانێن جیاواز.
+                <br><br>
+                په‌رتووك یا هاتی نڤیسین ل سه‌ر ئیستانبولێ,پایته‌ختێ ئیمبراتوریه‌تا ئوسمانیا ل ساڵا 1591, د ده‌مێ بهێزترین حوكمرانێن ئیمبراتوریه‌تێ دا. هه‌روه‌كی په‌رتووك ڕه‌خنێ ل چه‌وسانه‌وا ئایینی و بنه‌مایێن كه‌لتوری دگریت, نڤیسه‌ری هونه‌ر (وێنه‌)
+                یێ
+                هه‌لبژاردی وه‌ك ئامرازه‌ك كو تێدا ئه‌ڤ بنه‌مایه‌ یێن هاتین ڤه‌گێڕان. رومان ل دوور نیگاركێشان, ئه‌و نیگاركێشێن په‌رتووكا هونه‌رێ توركی كێشای, و بنه‌مایێن هونه‌رێ چینی بكارئینای, و هونه‌رێ جوان نڤیسینێ هه‌روه‌سا رێكێن تێروته‌سه‌لێن
+                بكارئینانا ڕه‌نگان و شێوان دزڤریت. رومانێ بنه‌مایێن حه‌ژێكرنێ و نهێنیان و كوشتن, و هه‌ڤركییا سیاسی یا توركی و هه‌روه‌سا نزیك دیاركرنا هونه‌ری و كارتێكرنا وی ل سه‌ر ئه‌و كه‌سێن چێكری و ئه‌و كه‌سێن حه‌ز ژێ دكه‌ن
+                <br><br>
+                ده‌مێ چیروك ده‌ست پێ دكه‌ت, ئێك ژ نیگاركێشان هاته‌ كوشتن, كه‌سه‌كێ دیار خودانێ په‌رتووكه‌كا كاریگه‌ر و هشیاركه‌ر ئه‌وا هاتی نڤیسان. كـارا یان ژی بـڵاك, نیگاركێشه‌كێ دی یێ ئینایه‌ ئیستانبولێ ڤه‌ دا دیفچوونا كوژه‌كی بكه‌ت. ئـێنیشته‌,
+                خالێ
+                بـڵاكی, بو وی فرێ كر, هه‌روه‌كی ئه‌و نڤیسه‌رێ په‌رتوكا هشیاركه‌را نهێنی, و وی داخاز ژ خارزایێ خۆ كر كو هاریكاریا وی بكه‌ت, نه‌ به‌ری بـڵاك كوژه‌كی بینیت. بـڵاك رازی بوو بزڤریت نه‌ تنێ دا كار ل سه‌ر په‌رتووكێ و دیفچوونا كوژه‌كی بكه‌ت,
+                به‌لێ ژبه‌ر دا حه‌ژێكرنا كچا ئـه‌نیشته‌ی, كچ خالا خۆ (شـه‌كورێ) ب ده‌ست خۆ ڤه‌ بینیت. ئه‌ڤه‌ چه‌ندین ساڵه‌ وی ئه‌و نه‌ دیتی, له‌وما به‌ری بـڵاك ده‌ست ب كارێ دیفچوونێ بكه‌ت, وی پێكول كر كو شـه‌كورێ بینیت, هه‌رچاوا بیت ئه‌و ل وی
+                ڤه‌شارت.
+                وێ دزیكیڤه‌ ته‌ماشه‌ی بـڵاكی و بابێ خۆ دكر ده‌مێ وان دئاخفتی ل سه‌ر په‌رتووكێ.
+              </p>
+              <details>
+                <summary class="head">زێدەتر</summary>
+                <p class="More-details">
+                  ده‌مێ بـڵاكی ده‌ست ب دیفچوونێ كری, سێ نیگاركێشێن دی بـه‌ته‌رفڵای, سـتوڕك و ئـوڵیڤ گومان لێ كه‌رێن سه‌ره‌كی بوون. پشتی دیتنا بـڵاكی دوباره‌ شـه‌كوره‌ كه‌فته‌ داڤێن ئه‌ڤینا وی دا سه‌ره‌رای هندێ كو وی ئه‌و نه‌ ددیت. ده‌مێ شـه‌كورێ گوهـ
+                  ل
+                  كوشتنا نیگاركێشی بووی, وێ بریار دا كو ئـێدی چاڤه‌رێ ڤه‌گه‌ریانا هه‌ڤژینێ خۆ یێ سه‌رباز نه‌بیت, ئه‌وێ نه‌ دیار پتر ژ چار ساڵان. سێ كه‌سان داخازا هه‌ڤژینیێ ل شـه‌كورێ دكر, یێ ئێكێ ئێك ژ نیگاركێشان بوو, یێ دووێ بـڵاك بوو, و یێ سیێ تیێ
+                  وێ
+                  حـه‌سه‌ن بوو. وێ نه‌ڤێت شوی ب حـه‌سه‌نی بكه‌ت, ده‌مێ ئه‌و و هه‌ڤژینێ خۆ دگه‌ل حـه‌سه‌نی دژیای, حـه‌سه‌ن یێ ڕه‌ق بوو دگه‌ل وێ هه‌روه‌سا لده‌ڤ برایێ خۆ ئاخفتنێن نه‌ د جهێ خۆدا دگوتنه‌ شـه‌كورێ. حـه‌سه‌نی گه‌ف ل وێ كرن كو دێ ده‌عوێ ل
+                  سه‌ر وێ چێكه‌ت دا دگه‌ل وی بزڤریته‌ڤه‌.
+                  <br><br>
+                  زڤڕین بۆ قه‌هوه‌خانێ ڤه‌, هه‌رسێ نیگاركێشێن گومان لێ كری نیگارێن خۆ به‌ڵاڤ كربوون هه‌روه‌سا ناڤه‌ڕوكا وێ په‌رتووكا ئه‌و ل سه‌ر كار دكه‌ن دگه‌ل چیروك ڤه‌گێره‌كێ دی, كو چیروك بۆ جه‌ماوه‌ری ڤه‌دگێران. ژبه‌ر كاریگه‌ری و چالاكیا
+                  په‌رتووكێ
+                  فشار ب شێوه‌كێ توند ل وان جها به‌ر به‌ڵاڤ ببوو, گوهـ لێبونا چیروكان توره‌بوونا گروپێن ئایینی دیڤدا هات و د ئه‌نجام دا ئـه‌نیشته‌ هاته‌ كوشتن.
+                  <br><br>
+                  شـه‌كوره‌ نوكه‌ گه‌له‌ك یا كاریگه‌ر بووی ب مرنا بابێ خۆ, بریاردا كو یا گرنگه‌ كو شوی بكه‌ت سه‌ر خاترا بابێ خۆ, له‌وا وێ پسیار ژ بـڵاكی كر كو هاری وێ بكه‌ت خۆ بده‌ته‌ به‌ردان ژ هه‌ڤژینێ خۆ یێ به‌رزه‌. ب له‌ز, د وێ روژێ دا وێ و بـڵاكی
+                  شوی ب ئێك و دو كرو پاشی هه‌ردوا چاڤێ خۆ دا كه‌له‌خێ ئـه‌نیشته‌ی , و ڤه‌شارت (ئانكو كره‌ قه‌بری دا). سه‌ڕه‌ڕای هندێ كو وان شوی ب ئێك كری, شـه‌كوره‌ نه‌ڤێت هه‌ڤژینیا وێ دگه‌ل بـڵاكی ب تمامی ب دوماهیك بهێت هه‌تا ئه‌و دیفچوونا كوژه‌كێ
+                  بابێ وێ بكه‌ت. بـڵاك نوكه‌ یێ ل هه‌ردو بكوژان دگه‌ریت, وی هزر كر به‌لكی بكوژێ هه‌ردو كه‌سان ئێك بیت.
+                </p>
+                <details>
+                  <summary class="head">زێدەتر</summary>
+                  <p class="More-details">
+                    بـڵاك چوو دا ل بكوژان بگه‌ڕیت, به‌لێ هاته‌ راوه‌ستاندن ب ژماره‌كا ئاسته‌نگان د هه‌مان ده‌م دا, شـه‌كوره‌ نوكه‌ یا بتنێ یه‌ ل ماڵ, ترسیا كو ئه‌و ژی بهێته‌ كوشتن. له‌وا وێ ب دودلی ڤه‌ بڕیار دا بچیته‌ ماڵا حـه‌سه‌نی, هه‌رچاوا بیت
+                    ئێكسه‌ر په‌شیمان بووڤه‌. بـڵاك زڤریڤه‌ و هاری وێ كر بڕه‌ڤیت, وان خه‌نجه‌را حـه‌سه‌نی دزی ده‌مێ ئه‌و ل وێرێ چووی.
+                    <br><br>
+                    هاته‌ راگه‌هاندن كو ئـولیڤ بكوژه‌. ب هاریكاریا هه‌ردو نیگاركێشێن دی بـڵاك دگه‌ل ئـولیڤی روینشته‌ خار, ئـولیڤ گه‌له‌كێ په‌یت بوو. ده‌مێ بـلاّكی و ئـولیڤی شه‌ركری, ئـولیڤی خه‌نجه‌ر ژ بـڵاكی ستاند و ب گرانی ئه‌و بریندار كرو خه‌نجه‌ر
+                    بر
+                    و ڕه‌ڤی. د رێكێ دا ده‌رڤه‌ی باژێری, ئـولیڤ ل كارخانێ راوه‌ستیا دا تشێن خۆ ببه‌ت, حـه‌سه‌ن ل وێرێ بوو. حـه‌سه‌نی دیت كو خه‌نجه‌ر یا ف ئـولیڤی, ئـولیڤ تاوانبار كر ب دزینا خه‌نجه‌رێ ژ وی. وی هێرش كره‌ سه‌ر ئـولیڤی و سه‌رێ وی بڕی,
+                    ترسیان ژ وی كارێ سه‌ر ژێكرنێ حـه‌سه‌نی باژێر ب جهـ هێلا.
+                    <br><br>
+                    شـه‌كورێ چاڤدێریا برینێن بـڵاكی كر, و ل دوماهیێ وان شیا بژین وه‌ك دو كه‌سێن هه‌ڤژینی پێك ئینای و حه‌ز ژ ئێك دكه‌ن. كه‌له‌خێ بێ سه‌رێ ئـولیڤی هاته‌ دیتن ل كارخانێ, هونه‌ر و پروژێ په‌رتووكێ هاته‌ ئێخستن. ب بوورینا ده‌می و ئایین و
+                    تیتال پتر گه‌شه‌سه‌ند,پاشڤه‌چوونا نیگار كێشان و وێنه‌ بوونه‌ ئه‌گه‌رێ ده‌ستپێكا چه‌رخێ تاریاتیێ.
+                    <br><br>
+                    سه‌ره‌رای هه‌بوونا هونه‌رێ مری " ناڤێ من ســووره‌" رومانه‌كا ب ڕه‌نگه‌. درومانێ دا گه‌له‌ك ڤه‌گێرێن سه‌یر هه‌نه‌, ره‌نگێ سـوور ژی ئێكه‌ ژ وان ڤه‌گێران ئه‌وێن هاتی نیشاندان د رومانێ دا.
+                    <br><br>
+                    ئـورهان پاموكی خه‌لاتێ " نوبل" وه‌رگرت ل ساڵا 2006بۆ ڤێ په‌رتووكێ. هه‌روه‌سا وی ژماره‌كا بێ سنور یا خه‌لاتان وه‌رگرتیه‌ بۆ ژماره‌كا زوورا جیاوازا زمانان هاتیه‌ وه‌رگێران. رومانا بالكێش "ناڤێ من ســووره‌" , دیتنه‌كا باش بۆ
+                    حه‌ژێكرنێ
+                    و هونه‌ری هه‌روه‌سا رویدانێن سیاسی پێشكه‌ش دكه‌ت.
+                  </p>
+                </details>
+              </details>
+            </details>
+          </div>
+        </li>
+      </div>
+
+      <div class="col-lg-3 col-md-5">
+        <li class="animals">
+          <hr>
+          <p>ئەنتیخریستۆس بەرگێ ئێکێ</p>
+          <hr>
+          <div class="maincontainer">
+            <div class="thecard">
+              <div class="thefront">
+                <img class="b" src="Chirok-images/2.jpeg" alt="">
+              </div>
+              <div class="theback">
+                <img class="b" src="Chirok-images/2b.jpeg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="wrab">
+            <details>
+              <summary class="head">کورتیا پەڕتووکێ</summary>
+              <p class="More-details">
+                ژلایێ : محمد سالم
+                <br><br>
+                ئەنتيخريستوس
+                کتێبەکە تە ڤەدگوهيزيتە ژيانەکا دی و راستيا گەلەك تشتا بوتە دياردکەت ، (ئەنتيخريستوس) کو رومانەکە يا تێکەل کريە ژ راستيی و خەيالەکا جوان و دڤێ رومانێ دا چەند چيروکا بخوڤە دگريت ، پەيڤا (ئەنتيخريستوس) پەيڤەکا (لاتينييە) رامانا وێ
+                (مەسيحێ
+                دەجال) ژ بەرهەمێ (احمد خالد مصطفى) کو گەلەك رويدان و چيروك و تشت چێبونە دژيانێ دا دێ راستيا وێ بوتە ديار بيت و تا نوکە توو يێ دڤان رودانا دا دژيی ، رومان بەحسێ ژيانا ناڤبەرا مروڤان و ژيانا شەيتانان دکەت و گەلەك پێزانينێن درست و
+                چيروکێن
+                درست بەحس دکەت دگەل پيچەك تێکەل کرنا خەيالی ، بەحس دکەت ( چەوانيا بەلاڤ بوونا سحرێ ، چيروکا نمرود و چيروکا پێغەمبەرا و گەلەک يێن دی ،…..)
+              </p>
+              <details>
+                <summary class="head">زێدەتر</summary>
+                <p class="More-details">
+                  چيروك بەری بهێتە گوتن دێ هندەك وەرەقا دانیتە ل بەرسينگێ تە و هەر وەرەقەک بەحسێ رودانەکێ دکەت دناڤ چيروکێ دا، پاشی دێ بێژيت چيروك شەيتان يان کەسەكی ڤەگوهاستيە و دێ چيروکێ بێژيت و دێ بدوماهيك هێت پاش دێ پێزانينێن گرنگ بێژيتە تە و هەر
+                  چیروکەکا دی،
+                  چیروك پێك دهێت ژ ( ترس ، زانين ، سەرسورمان کرن )
+                </p>
+              </details>
+            </details>
+          </div>
+        </li>
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+  </main>
+  <!-- =============================================== li vere de code min bi duhamik het ================================== -->
+
+
+  <footer class="text-muted py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">زڤرین بو سەری⇈</a>
+      </p>
+
+
+    </div>
+
+  </footer>
+  <div class="container" style="text-align: center;" dir="ltr">
+
+    <p>
+    <p> © Copyright 2020-2022</p>
+    <p>Developers: <br><a href="https://www.instagram.com/amed_berzinar/">Amed Abdullhemid</a> <br> <a href="https://www.instagram.com/awab_kurdi/">Awab Luqman</a> </p>
+
+    <!-- Designed by <a href="https://www.facebook.com/fakherzebari" target="_blank">Fakher Zibari</a> -->
+    </p>
+
+
+  </div>
+
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
