@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
-
+  <script src="https://kit.fontawesome.com/26348f97c6.js" crossorigin="anonymous"></script>
 
   <!-- Bootstrap core CSS -->
   <!-- <link href="../assets/dist/css/bootstrap.rtl.min.css" rel="stylesheet"> -->
@@ -107,7 +107,7 @@
     }
 
     /* Search bar */
-    #searchbar {
+    /* #searchbar {
       padding: 3px 10px;
       font-size: 18px;
       border-radius: 15px;
@@ -122,11 +122,10 @@
       transition: width 0.15s ease-in-out;
     }
 
-    /* When the input field gets focus,
-        change its width to 100% */
+
     input[type=text]:focus {
       width: 60%;
-    }
+    } */
 
     #list {
       font-size: 1.5em;
@@ -136,6 +135,65 @@
     .animals {
       margin: 10px 0px 0px 0px;
       display: block;
+    }
+
+
+    /* Search Bar Style */
+    .Box-Search{
+      margin: 20px auto;
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .searchbox {
+      display: flex;
+      background-color: #2c80d3;
+      padding: 10px;
+      border-radius: 50px;
+    }
+
+    .searchbox input {
+      line-height: 40px;
+      background: none;
+      border: none;
+      click: none;
+      font-size: 16px;
+      width: 0px;
+      transition: all 1s;
+    }
+
+
+
+    .searchbox input:focus {
+      width: 200px;
+      margin-left: 10px;
+      border-radius: 20px;
+    }
+
+    .searchbox:hover input {
+      width: 200px;
+    }
+
+    ::placeholder {
+      color: white;
+    }
+
+    .searchbox button {
+      height: 40px;
+      width: 40px;
+      background: none;
+      color: white;
+      border: none;
+      outline: none;
+    }
+
+    .searchbox:hover button{
+      color: black;
+      background: white;
+      border-radius: 50px;
     }
 
 
@@ -316,9 +374,18 @@
   <!--  =====================================      ew code ez de li vere zede kem ======================================== -->
   <main>
 
-    <input class="TOP1" id="searchbar" onkeyup="search_animal()" type="text" name="search" placeholder="Search Books">
+
+
 
     <div class="container">
+
+      <div class="Box-Search">
+        <div class="searchbox">
+          <input id="searchbar" onkeyup="search_animal()" type="text" name="search" placeholder="...Search Books">
+          <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-lg-4 col-md-5 ">
 
