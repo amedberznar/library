@@ -19,7 +19,42 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+  <!-- icon -->
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
   <style>
+    /* code go up */
+
+    #arrow {
+      font-size: 48px;
+      position: fixed;
+      right: 20px;
+      bottom: -100px;
+      color: cornflowerblue;
+      transition: 0.5s;
+    }
+
+    #arrow:hover {
+      cursor: pointer;
+      color: #225372;
+      transition: 0.5s;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+
+    .top-ziman {
+      padding-right: 25px;
+    }
+
+    .ziman-button {
+      font-size: 15px;
+    }
+
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -106,27 +141,6 @@
       text-align: center;
     }
 
-    /* Search bar */
-    /* #searchbar {
-      padding: 3px 10px;
-      font-size: 18px;
-      border-radius: 15px;
-      border: solid grey 1px;
-      margin: 10px 70px 0px 0px;
-      display: block;
-    }
-
-    input[type=text] {
-      width: 60%;
-      -webkit-transition: width 0.15s ease-in-out;
-      transition: width 0.15s ease-in-out;
-    }
-
-
-    input[type=text]:focus {
-      width: 60%;
-    } */
-
     #list {
       font-size: 1.5em;
       display: block;
@@ -157,6 +171,7 @@
 
     .searchbox input {
       line-height: 40px;
+      outline: none;
       background: none;
       border: none;
       click: none;
@@ -329,6 +344,26 @@
         }
       }
     }
+
+
+    window.onload = function() {
+
+      var button = document.getElementById('arrow');
+
+      window.onscroll = function() {
+        if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+          button.style.bottom = '20px';
+        } else {
+          button.style.bottom = '-100px';
+        }
+      };
+
+      button.addEventListener('click', function() {
+        document.body.scrollTop = '0';
+        document.documentElement.scrollTop = '0';
+      });
+
+    };
   </script>
 
 </head>
@@ -388,6 +423,8 @@
 
       <div class="row">
 
+
+        <!-- NEW BOOOOK -->
         <div class="col-lg-4 col-md-5">
           <li class="animals">
             <hr>
@@ -407,26 +444,95 @@
             <div class="wrab">
               <details>
                 <summary class="head">کورتیا پەڕتووکێ</summary>
-                <p class="More-details">
-                  ئەڤ پەرتووکە بەحسێ خودێ و دلۆڤانی و لێببۆریناوی دکەت، یا باش نابیت ب ئێک جار و ل سەر ئێک بهێتەخواندن، هەرچەندە قەبارێ وێ وەسا دخوازیت، بەلکی ب چەند روینشتنەکان و چەند ڕۆژەکان بهێتە خواندن!
-                  وەکی خوارنێ نینە ب ئێک جار بهێتە خوارن، بەلکی وەکی دەرمانییە یا ب مفا نابیت ئیلا چەند ڕۆژەکان و چەند جارەکان نەبیت
-                </p>
-                <details>
-                  <summary class="head">پێشگوتنا وەرگێڕی</summary>
-                  <p class="More-details">
-                    خواندەڤانێ بەرێز: ئەڤ پەرتووکا ل بەر دەستێ تە پێکهاتییە ژ کۆمەکا کۆرتە رامانان، کو بەحسێ دلۆڤانیا خۆدێ و لێبۆرینا وی دکەن، تە پالددەت بۆ دوعاکرنێ و بێ هیڤی نەبوون ژ بەرسڤدانێ، بێ هیڤی نەبی ژ ژیانێ و هەردەم بزڤڕی بۆ لایێ خودێ،
-                    سکاڵا
-                    خەمێن خۆ بۆ لایێ وی ببەی و نهێنیێن خۆ لایێ وی بەحس بکەی، ب رێکا ڤان کۆرتە رامانان دێ دلۆڤانییا خودێ بەرامبەر تە دیاربیت، باشیێ دهینیتە رێکا تە و خرابییێ ژتە دویردئێخیت، ژتە باشتر کارێن تە بۆ تە برێڤەدبەت. ئەڤ کۆرتە رامانە من
-                    رۆژانە
-                    یێن وەرگێڕای ل گەل چەند ئاخفتنێن دی و دناڤ ڤێ پەرتووکێ دا کۆمکرینە داکو زۆرترین مفایی بگەهینمە خواندەڤانێن وێ. ئەو ئاخفتنێن مە ناڤێ نڤیسەرێ وان زانیبیت، مە یێن نڤیسین، ئەوێن مە ناڤێ نڤیسەرێن وان نەزانیبن مە وەک خۆ و بێ دەستکاری
-                    ڤەگۆهاستنە، ئانکو مە ناڤێ چ نڤیسەران ژ دەڤ خۆ نەژێبرینە. هیڤیدارم دیارییەکا ب تام و مفا بیت بۆ خواندەڤانێن هێژا، پشتی خواندنێ شینوارەکێ جوان و گەش ل پشت خۆ بهێلیت
-                  </p>
-                </details>
+                <!-- eve ew dokmen seri ne -->
+                <ul class="top-ziman nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="ziman-button nav-link active" id="Badini" data-bs-toggle="tab" data-bs-target="#a1-tab-pane" type="button" role="tab" aria-controls="Badini-tab-pane" aria-selected="true">بادینی</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="ziman-button nav-link" id="Sorani" data-bs-toggle="tab" data-bs-target="#b1-tab-pane" type="button" role="tab" aria-controls="Sorani-tab-pane" aria-selected="false">سۆرانی</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="ziman-button nav-link" id="Arabic" data-bs-toggle="tab" data-bs-target="#c1-tab-pane" type="button" role="tab" aria-controls="Arabic-tab-pane" aria-selected="false">العربية</button>
+                  <li class="nav-item" role="presentation">
+                  </li>
+                    <button class="ziman-button nav-link" id="English" data-bs-toggle="tab" data-bs-target="#d1-tab-pane" type="button" role="tab" aria-controls="English-tab-pane" aria-selected="false">English</button>
+                  </li>
+                </ul>
+                <!-- eve domahika wan dokmen seri ne -->
+
+                <!-- li vere de wan tishtan daxil key bo wan zimanen te diven -->
+                <div class="tab-content" id="myTabContent">
+
+                  <!-- text Badini -->
+                  <div class="tab-pane fade show active" id="a1-tab-pane" role="tabpanel" aria-labelledby="Badini" tabindex="0">
+                    <p class="More-details">
+                      ئەڤ پەرتووکە بەحسێ خودێ و دلۆڤانی و لێببۆریناوی دکەت، یا باش نابیت ب ئێک جار و ل سەر ئێک بهێتەخواندن، هەرچەندە قەبارێ وێ وەسا دخوازیت، بەلکی ب چەند روینشتنەکان و چەند ڕۆژەکان بهێتە خواندن!
+                      وەکی خوارنێ نینە ب ئێک جار بهێتە خوارن، بەلکی وەکی دەرمانییە یا ب مفا نابیت ئیلا چەند ڕۆژەکان و چەند جارەکان نەبیت
+                    </p>
+                    <details>
+                      <summary class="head">پێشگوتنا وەرگێڕی</summary>
+                      <p class="More-details">
+                        خواندەڤانێ بەرێز: ئەڤ پەرتووکا ل بەر دەستێ تە پێکهاتییە ژ کۆمەکا کۆرتە رامانان، کو بەحسێ دلۆڤانیا خۆدێ و لێبۆرینا وی دکەن، تە پالددەت بۆ دوعاکرنێ و بێ هیڤی نەبوون ژ بەرسڤدانێ، بێ هیڤی نەبی ژ ژیانێ و هەردەم بزڤڕی بۆ لایێ خودێ،
+                        سکاڵا
+                        خەمێن خۆ بۆ لایێ وی ببەی و نهێنیێن خۆ لایێ وی بەحس بکەی، ب رێکا ڤان کۆرتە رامانان دێ دلۆڤانییا خودێ بەرامبەر تە دیاربیت، باشیێ دهینیتە رێکا تە و خرابییێ ژتە دویردئێخیت، ژتە باشتر کارێن تە بۆ تە برێڤەدبەت. ئەڤ کۆرتە رامانە من
+                        رۆژانە
+                        یێن وەرگێڕای ل گەل چەند ئاخفتنێن دی و دناڤ ڤێ پەرتووکێ دا کۆمکرینە داکو زۆرترین مفایی بگەهینمە خواندەڤانێن وێ. ئەو ئاخفتنێن مە ناڤێ نڤیسەرێ وان زانیبیت، مە یێن نڤیسین، ئەوێن مە ناڤێ نڤیسەرێن وان نەزانیبن مە وەک خۆ و بێ
+                        دەستکاری
+                        ڤەگۆهاستنە، ئانکو مە ناڤێ چ نڤیسەران ژ دەڤ خۆ نەژێبرینە. هیڤیدارم دیارییەکا ب تام و مفا بیت بۆ خواندەڤانێن هێژا، پشتی خواندنێ شینوارەکێ جوان و گەش ل پشت خۆ بهێلیت
+                      </p>
+                    </details>
+                  </div>
+                  <!-- end text Badini -->
+
+                  <!-- text sorani -->
+                  <div class="tab-pane fade" id="b1-tab-pane" role="tabpanel" aria-labelledby="Sorani" tabindex="0">
+                    <p class="More-details">
+                      هەر کەسێک کورتکراوەی ئەم پەرتووکە بە زمانی کوردی زاراوەی سورانی هەبێ دەتوانێ بو ئێمە بینێرێ
+                      <br><br>
+                      07518405161
+                      <br><br>
+                      07508419579
+                    </p>
+                  </div>
+                  <!-- end text sorani -->
+
+                  <!-- text arabic -->
+                  <div class="tab-pane fade" id="c1-tab-pane" role="tabpanel" aria-labelledby="Arabic" tabindex="0">
+                    <p class="More-details">
+                      اي شخص يمتلك الايجاز حول هذا الكتاب باللغة العربية يمكنه ان يرسل لنا نسخة منها
+                      <br><br>
+                      07518405161
+                      <br><br>
+                      07508419579
+                    </p>
+                  </div>
+                  <!-- end text arabic -->
+
+                  <!-- text english -->
+                  <div class="tab-pane fade" id="d1-tab-pane" role="tabpanel" aria-labelledby="English" tabindex="0">
+                    <p class="More-details">
+
+                      <br><br>
+                      07518405161
+                      <br><br>
+                      07508419579
+                    </p>
+                  </div>
+                  <!-- end text english -->
+
+                </div>
+                <!-- li ser vere de wan tishtan daxil key bo wan zimanen te diven -->
+
               </details>
             </div>
           </li>
         </div>
+        <!-- END OF NEW BOOOOK -->
 
+
+
+        <!-- NEW BOOOOK -->
         <div class="col-lg-4 col-md-5">
           <li class="animals">
             <hr>
@@ -446,27 +552,96 @@
             <div class="wrab">
               <details>
                 <summary class="head">کورتیا پەڕتووکێ</summary>
-                <p class="More-details">
-                  ژلایێ : سولین شاکر محمد
-                  <br><br>
-                  پەڕتووکەکەدەربارەی ٢٠ جورێن مروڤان کو روژا دوماهیێ دێ خودایێ مەزن دەتە بەر سیبەرا خۆ ئەو روژا ژبلی سیبەرا وی چ سیبەرێن دی نەبن ب بەلگەیێن فەرمودەیێن پێغەمبەری-سلاڤ لێ بن- و ئایەتێن قورئانا پیروز. ئەڤ پەرتووکە یا گرێدایەب هزرکرنا مە
-                  مروڤان د خودا کانێ د چ تشتی دا ئەم د خەلەتین و هەست ب خەلەتیێن خۆ بکەین ئەوێن کو ئەم هەست پێ دکەین نە خەلەتی نە بەلێ دڤێ پەرتوکێدا گەلەک جوانی دەربارەی ڤان خەلەتیان یا ئاخفتی کو دشێت ب ڤان رێکان مروڤ بشێت ببیتە ئێک ژوان مروڤان کو
-                  خودێ
-                  سیبەرا خۆ لێ دکەت و وان خەلەتیان راست ڤە بکەتئەوێن ئوم د ژیانا خویا روژانەدا دکەین ب بەردەوامی
-                </p>
-                <details>
-                  <summary class="head">زێدەتر</summary>
-                  <p class="More-details">
-                    هەروەسا دڤێ پەرتووکێ دا بومە بهایێن هەر مروڤەکێ دهێنە دیارکرن لدەڤ خودێ، و کادێ چاوا سەرەدەری دگەل هێتە کرن ل وێ روژا چ سیبەر نەبن ژبلی سیبەرا خودایێ مەزن، هەروەسا ئەوان کەسان یێن خودێ حەژێ دکەت، هەروەسا دەربارەی گەلەک ئەرکان د
-                    ئاخڤیت
-                    کو ئەم روژانە بکەین دا ئاستێ مە لدەڤ خودێ بلند ببیت و ببینە ئەو کەسە یێن خودێ حەژێ دکەت و مروڤ ب ڤیانا خودێ ڤە بهێتە گرێدان، دەربارەی ڤێ پەرتوکێ دوماهی ناهێت و ئاخفتن لسەر دوماهی ناهێن چونکی براستیژی یا ژ هەژی خواندنێ یەو هەمی کەس
-                    مفای ژێ ببینن و خوشیێ ژ خواندنا ڤێ پەرتووکا تژی مفا و سەربور ببینن.
-                  </p>
-                </details>
+                <!-- eve ew dokmen seri ne -->
+                <ul class="top-ziman nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="ziman-button nav-link active" id="Badini" data-bs-toggle="tab" data-bs-target="#a2-tab-pane" type="button" role="tab" aria-controls="Badini-tab-pane" aria-selected="true">بادینی</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="ziman-button nav-link" id="Sorani" data-bs-toggle="tab" data-bs-target="#b2-tab-pane" type="button" role="tab" aria-controls="Sorani-tab-pane" aria-selected="false">سۆرانی</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="ziman-button nav-link" id="Arabic" data-bs-toggle="tab" data-bs-target="#c2-tab-pane" type="button" role="tab" aria-controls="Arabic-tab-pane" aria-selected="false">العربية</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="ziman-button nav-link" id="English" data-bs-toggle="tab" data-bs-target="#d2-tab-pane" type="button" role="tab" aria-controls="English-tab-pane" aria-selected="false">English</button>
+                  </li>
+                </ul>
+                <!-- eve domahika wan dokmen seri ne -->
+
+                <!-- li vere de wan tishtan daxil key bo wan zimanen te diven -->
+                <div class="tab-content" id="myTabContent">
+
+                  <!-- text Badini -->
+                  <div class="tab-pane fade show active" id="a2-tab-pane" role="tabpanel" aria-labelledby="Badini" tabindex="0">
+                    <p class="More-details">
+                      ژلایێ : سولین شاکر محمد
+                      <br><br>
+                      پەڕتووکەکەدەربارەی ٢٠ جورێن مروڤان کو روژا دوماهیێ دێ خودایێ مەزن دەتە بەر سیبەرا خۆ ئەو روژا ژبلی سیبەرا وی چ سیبەرێن دی نەبن ب بەلگەیێن فەرمودەیێن پێغەمبەری-سلاڤ لێ بن- و ئایەتێن قورئانا پیروز. ئەڤ پەرتووکە یا گرێدایەب هزرکرنا مە
+                      مروڤان د خودا کانێ د چ تشتی دا ئەم د خەلەتین و هەست ب خەلەتیێن خۆ بکەین ئەوێن کو ئەم هەست پێ دکەین نە خەلەتی نە بەلێ دڤێ پەرتوکێدا گەلەک جوانی دەربارەی ڤان خەلەتیان یا ئاخفتی کو دشێت ب ڤان رێکان مروڤ بشێت ببیتە ئێک ژوان مروڤان کو
+                      خودێ
+                      سیبەرا خۆ لێ دکەت و وان خەلەتیان راست ڤە بکەتئەوێن ئوم د ژیانا خویا روژانەدا دکەین ب بەردەوامی
+                    </p>
+                    <details>
+                      <summary class="head">زێدەتر</summary>
+                      <p class="More-details">
+                        هەروەسا دڤێ پەرتووکێ دا بومە بهایێن هەر مروڤەکێ دهێنە دیارکرن لدەڤ خودێ، و کادێ چاوا سەرەدەری دگەل هێتە کرن ل وێ روژا چ سیبەر نەبن ژبلی سیبەرا خودایێ مەزن، هەروەسا ئەوان کەسان یێن خودێ حەژێ دکەت، هەروەسا دەربارەی گەلەک ئەرکان د
+                        ئاخڤیت
+                        کو ئەم روژانە بکەین دا ئاستێ مە لدەڤ خودێ بلند ببیت و ببینە ئەو کەسە یێن خودێ حەژێ دکەت و مروڤ ب ڤیانا خودێ ڤە بهێتە گرێدان، دەربارەی ڤێ پەرتوکێ دوماهی ناهێت و ئاخفتن لسەر دوماهی ناهێن چونکی براستیژی یا ژ هەژی خواندنێ یەو هەمی کەس
+                        مفای ژێ ببینن و خوشیێ ژ خواندنا ڤێ پەرتووکا تژی مفا و سەربور ببینن.
+                      </p>
+                    </details>
+                  </div>
+                  <!-- end text Badini -->
+
+                  <!-- text sorani -->
+                  <div class="tab-pane fade" id="b2-tab-pane" role="tabpanel" aria-labelledby="Sorani" tabindex="0">
+                    <p class="More-details">
+                      هەر کەسێک کورتکراوەی ئەم پەرتووکە بە زمانی کوردی زاراوەی سورانی هەبێ دەتوانێ بو ئێمە بینێرێ
+                      <br><br>
+                      07518405161
+                      <br><br>
+                      07508419579
+                    </p>
+                  </div>
+                  <!-- end text sorani -->
+
+                  <!-- text arabic -->
+                  <div class="tab-pane fade" id="c2-tab-pane" role="tabpanel" aria-labelledby="Arabic" tabindex="0">
+                    <p class="More-details">
+                      اي شخص يمتلك الايجاز حول هذا الكتاب باللغة العربية يمكنه ان يرسل لنا نسخة منها
+                      <br><br>
+                      07518405161
+                      <br><br>
+                      07508419579
+                    </p>
+                  </div>
+                  <!-- end text arabic -->
+
+                  <!-- text english -->
+                  <div class="tab-pane fade" id="d2-tab-pane" role="tabpanel" aria-labelledby="English" tabindex="0">
+                    <p class="More-details">
+
+                      <br><br>
+                      07518405161
+                      <br><br>
+                      07508419579
+                    </p>
+                  </div>
+                  <!-- end text english -->
+
+                </div>
+                <!-- li ser vere de wan tishtan daxil key bo wan zimanen te diven -->
+
               </details>
             </div>
           </li>
         </div>
+        <!-- END OF NEW BOOOOK -->
+
+
+
+
 
 
 
@@ -485,14 +660,9 @@
 
   <footer class="text-muted py-5">
     <div class="container">
-      <p class="float-end mb-1">
-        <a href="#">زڤرین بو سەری⇈</a>
-      </p>
-
-
     </div>
-
   </footer>
+
   <div class="container" style="text-align: center;" dir="ltr">
 
     <p>
@@ -505,9 +675,9 @@
 
   </div>
 
+
+  <div id="arrow" title="Go up"><i class="icon ion-md-arrow-dropup-circle"></i></div>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </body>
 
 </html>
