@@ -19,7 +19,128 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+  <!-- icon -->
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
   <style>
+    /* dark mode */
+    .bold-text-dark {
+
+      position:absolute;
+      left:65px;
+      top:4px;
+    }
+
+    .bold-text-light {
+      position:absolute;
+      right:65px;
+      top:4px;
+    }
+
+
+    .dark-mode {
+      background-color: #171f24;
+      color: #fff;
+    }
+
+    .black-text {
+      color: #000;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      margin-right: 40px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked+.slider {
+      background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+
+    /* code go up */
+
+    #arrow {
+      font-size: 48px;
+      position: fixed;
+      right: 20px;
+      bottom: -100px;
+      color: cornflowerblue;
+      transition: 0.5s;
+    }
+
+    #arrow:hover {
+      cursor: pointer;
+      color: #225372;
+      transition: 0.5s;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+
+    .top-ziman {
+      padding-right: 25px;
+    }
+
+    .ziman-button {
+      font-size: 15px;
+    }
+
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -32,6 +153,27 @@
     a {
       text-decoration: none;
     }
+
+    @media (min-width:300px) and (max-width: 768px) {
+      .bold-text-dark {
+        display: none;
+      }
+
+      .bold-text-light {
+        display: none;
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        margin-right: 0px;
+      }
+
+    }
+
+
 
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
@@ -49,18 +191,41 @@
       }
     }
 
+    @media (min-width:1399px) {
+
+      .maincontainer {
+        position: relative;
+        padding: 10px 65px 300px 0px;
+        margin-right: 30px;
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        bottom: 66px;
+        right: 18px;
+      }
+
+
+    }
+
 
 
     /* image-book style */
+
+
+
     .maincontainer {
       position: relative;
-      padding: 10px 0px 300px;
+      padding: 10px 65px 300px 0px;
     }
 
     .thecard {
       position: absolute;
-      width: 100%;
-      height: 90%;
+      width: 200px;
+      height: 299px;
       transform-style: preserve-3d;
       transition: all 2.5s ease;
     }
@@ -71,30 +236,31 @@
 
     .thefront {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: 200px;
+      height: 299px;
       backface-visibility: hidden;
       background: white;
       color: #333;
-      border-radius: 20px;
+      border-radius: 10px;
     }
 
     .theback {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: 200px;
+      height: 299px;
       backface-visibility: hidden;
       background: white;
       color: #333;
-      border-radius: 20px;
+      border-radius: 10px;
       transform: rotateY(180deg);
     }
 
     .b {
-      margin-right: 70px;
       width: 200px;
+      height: 300px;
       border-radius: 10px;
     }
+
 
 
     hr {
@@ -105,27 +271,6 @@
       margin-left: 25px;
       text-align: center;
     }
-
-    /* Search bar */
-    /* #searchbar {
-      padding: 3px 10px;
-      font-size: 18px;
-      border-radius: 15px;
-      border: solid grey 1px;
-      margin: 10px 70px 0px 0px;
-      display: block;
-    }
-
-    input[type=text] {
-      width: 60%;
-      -webkit-transition: width 0.15s ease-in-out;
-      transition: width 0.15s ease-in-out;
-    }
-
-
-    input[type=text]:focus {
-      width: 60%;
-    } */
 
     #list {
       font-size: 1.5em;
@@ -157,6 +302,7 @@
 
     .searchbox input {
       line-height: 40px;
+      outline: none;
       background: none;
       border: none;
       click: none;
@@ -268,7 +414,7 @@
     }
 
     details[open] {
-      background: White;
+      background: white;
       -webkit-box-shadow: 3px 4px 8px #bbbbbb;
       box-shadow: 3px 4px 8px #bbbbbb;
       border-radius: 10px 10px 10px 10px;
@@ -329,7 +475,40 @@
         }
       }
     }
+
+    // go up script
+    window.onload = function() {
+
+      var button = document.getElementById('arrow');
+
+      window.onscroll = function() {
+        if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+          button.style.bottom = '20px';
+        } else {
+          button.style.bottom = '-100px';
+        }
+      };
+
+      button.addEventListener('click', function() {
+        document.body.scrollTop = '0';
+        document.documentElement.scrollTop = '0';
+      });
+
+    };
+
+
+    // dark mode script
+    function dark() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+
+      var text = document.head;
+      text.classList.toggle("black-text");
+    }
+
+
   </script>
+
 
 </head>
 
@@ -386,154 +565,187 @@
         </div>
       </div>
 
+      <label class="switch">
+        <input type="checkbox" onclick="dark()">
+        <span class="slider round"></span>
+        <b class="bold-text-dark" >dark</b>
+        <b class="bold-text-light" >light</b>
+      </label>
+
       <div class="row">
 
-        <div class="col-lg-4 col-md-5">
-          <li class="animals">
-            <hr>
-            <p class="book-name">بۆ دۆزەخ، ئەی بێگوناهان</p>
-            <hr>
-            <div class="maincontainer">
-              <div class="thecard">
-                <div class="thefront">
-                  <img class="b" src="shano-images/1.jpeg" alt="">
-                </div>
-                <div class="theback">
-                  <img class="b" src="shano-images/1b.jpeg" alt="">
-                </div>
+
+
+        <!-- NEW BOOOOK -->
+      <div class="col-lg-4 col-md-5">
+        <li class="animals">
+          <hr>
+          <p class="book-name">بۆ دۆزەخ، ئەی بێگوناهان</p>
+          <hr>
+          <div class="maincontainer">
+            <div class="thecard">
+              <div class="thefront">
+                <img class="b" src="shano-images/1.jpeg" alt="">
+              </div>
+              <div class="theback">
+                <img class="b" src="shano-images/1b.jpeg" alt="">
               </div>
             </div>
+          </div>
 
-            <div class="wrab">
-              <details>
-                <summary class="head">کورتیا پەڕتووکێ</summary>
-                <p class="More-details">
-                  ژ لایێ : حەربیا ئەیوب محمود
-                  <br><br>
-                  دیــمەنێ ئێـــکێ
-                  کەسەک بناڤێ موستەفا رێبەر یێ د زیندانێ ڤە و یێ دخەو چووی. دوو فەرمانبەر دھێن و لێکولینێ پێ دکەن ئەو ئاماژێ بھندێ دکەت کو چ گونەھــ نەکرینە. ھەردوو فەرمانبەر و دبێژنێ ھەمی کەسێن د ئیننە ڤێرێ دەستپێکێ دانپێدانێ ناکەن پاشی پیچ پیچە
-                  دانپێدانێ ب تاوانا خۆ دکەن و دبێژنێ ڕۆژێن بھێن ھندەکێن دی دێ ھێن لێکولینی دگەل تە کەن و دچن.
-                </p>
-                <details>
-                  <summary class="head">زێدەتر</summary>
+          <div class="wrab">
+            <details>
+              <summary class="head black-text">کورتیا پەڕتووکێ</summary>
+              <!-- eve ew dokmen seri ne -->
+              <ul class="top-ziman nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="ziman-button nav-link active" id="Badini" data-bs-toggle="tab" data-bs-target="#a1-tab-pane" type="button" role="tab" aria-controls="Badini-tab-pane" aria-selected="true">بادینی</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="ziman-button nav-link" id="Sorani" data-bs-toggle="tab" data-bs-target="#b1-tab-pane" type="button" role="tab" aria-controls="Sorani-tab-pane" aria-selected="false">سۆرانی</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="ziman-button nav-link" id="Arabic" data-bs-toggle="tab" data-bs-target="#c1-tab-pane" type="button" role="tab" aria-controls="Arabic-tab-pane" aria-selected="false">العربية</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="ziman-button nav-link" id="English" data-bs-toggle="tab" data-bs-target="#d1-tab-pane" type="button" role="tab" aria-controls="English-tab-pane" aria-selected="false">English</button>
+                </li>
+              </ul>
+              <!-- eve domahika wan dokmen seri ne -->
+
+              <!-- li vere de wan tishtan daxil key bo wan zimanen te diven -->
+              <div class="tab-content" id="myTabContent">
+
+                <!-- text Badini -->
+                <div class="tab-pane fade show active" id="a1-tab-pane" role="tabpanel" aria-labelledby="Badini" tabindex="0">
                   <p class="More-details">
-                    دیــمەنێ دووێ
-                    دوو ھەیڤ یێن بسەر دوسیا موستەفای دەرباز بووین. لێکولەرەک دھێت و لێکولینێ دگەل دکەت.
-                    لێکولەر ب درێژیێ بۆ موستەفای ددەتە دیارکرن کا تاوان چیە؟ و بۆ ددەتە دیارکرن کو کارێ وان ئەوە ھاریاریا وان مروڤان بکەن یێن ھزر دکەن بێ گونەھن و گونەھێن وان نیشا وان بدەن و ل دوماھیێ دبێژیت چ مروڤ ج بێ گونەھــ نینن و ھیڤیێ ژ موستەفای
-                    دکەت پتر ھزرا خۆ بکەت .
+                    ژ لایێ : حەربیا ئەیوب محمود
+                    <br><br>
+                    دیــمەنێ ئێـــکێ
+                    کەسەک بناڤێ موستەفا رێبەر یێ د زیندانێ ڤە و یێ دخەو چووی. دوو فەرمانبەر دھێن و لێکولینێ پێ دکەن ئەو ئاماژێ بھندێ دکەت کو چ گونەھــ نەکرینە. ھەردوو فەرمانبەر و دبێژنێ ھەمی کەسێن د ئیننە ڤێرێ دەستپێکێ دانپێدانێ ناکەن پاشی پیچ پیچە
+                    دانپێدانێ ب تاوانا خۆ دکەن و دبێژنێ ڕۆژێن بھێن ھندەکێن دی دێ ھێن لێکولینی دگەل تە کەن و دچن.
                   </p>
                   <details>
-                    <summary class="head">زێدەتر</summary>
+                    <summary class="head black-text">زێدەتر</summary>
                     <p class="More-details">
-                      دیــمەنێ سـیێ
-                      زیندانیەک بناڤێ جەلیل کو ئەو دوو ساڵە د زیندانێ ڤە دھێتە د ژوورا موستەفای ڤە و دگەل دئاخڤیت. گەلەک ئاماژێ بھندێ دکەت کو چ مروڤ دبێ گونەھــ نینن و دبێژیتە موستەفای تۆ ژی دێ ڕۆژەکێ زانی کو تۆ نە مرۆڤەکێ بێ گــونەھـی و پاشی زێرەڤانەک
-                      دھێت و جەلیلی دبەت.
+                      دیــمەنێ دووێ
+                      دوو ھەیڤ یێن بسەر دوسیا موستەفای دەرباز بووین. لێکولەرەک دھێت و لێکولینێ دگەل دکەت.
+                      لێکولەر ب درێژیێ بۆ موستەفای ددەتە دیارکرن کا تاوان چیە؟ و بۆ ددەتە دیارکرن کو کارێ وان ئەوە ھاریاریا وان مروڤان بکەن یێن ھزر دکەن بێ گونەھن و گونەھێن وان نیشا وان بدەن و ل دوماھیێ دبێژیت چ مروڤ ج بێ گونەھــ نینن و ھیڤیێ ژ موستەفای
+                      دکەت پتر ھزرا خۆ بکەت .
                     </p>
                     <details>
-                      <summary class="head">زێدەتر</summary>
+                      <summary class="head black-text">زێدەتر</summary>
                       <p class="More-details">
-                        دیــمەنێ چــارێ
-                        جەمیلا ھەڤژینا موستەفای دھێتە زیندانێ و دبێژیتی ئەز ژی لڤێرێ ھاتبوومە زیندانی کرن بەلێ نوکە ئەزا ئازادم.
-                        موستەفا پرسیار دکەت کو بوچی ئەو ھاتبوو زیندانکرن چنکو ئەو ژنەکا باشە. وێ گوتێ ئەز ژنەکا باش نینینم وەکی تۆ ھزر دکەی و دەمانجەکێ دئینیە دەر و دبێژیتە موستەفای من بکوژە چنکو من خیانەت یا لتە کری.
-                        موستەفا باوەرناکەت و دبێژیت ڤەکولەری تۆ یا نەچارکری ڤان درەوا بکەی. لێ جەمیلە رەتدکەت و دبێژیت ئەو راستیە.
+                        دیــمەنێ سـیێ
+                        زیندانیەک بناڤێ جەلیل کو ئەو دوو ساڵە د زیندانێ ڤە دھێتە د ژوورا موستەفای ڤە و دگەل دئاخڤیت. گەلەک ئاماژێ بھندێ دکەت کو چ مروڤ دبێ گونەھــ نینن و دبێژیتە موستەفای تۆ ژی دێ ڕۆژەکێ زانی کو تۆ نە مرۆڤەکێ بێ گــونەھـی و پاشی زێرەڤانەک
+                        دھێت و جەلیلی دبەت.
                       </p>
                       <details>
-                        <summary class="head">زێدەتر</summary>
+                        <summary class="head black-text">زێدەتر</summary>
                         <p class="More-details">
-                          دیــمەنێ پێـــنجێ
-                          ڤەکولەر دەگەل میدیاکارەکێ و نوژدارەکێ دەرونی و ماموستایەکێ ئایینی کوم دبیت و دبێژیتێ دڤێت ئەڤرو ھوین وەل موستەفای بکەن ھەست بکەت مروڤەکێ گونەھبارە بەلێ ب چ ڕەنگا نە ئێشینن.
-                          پشتی ئەو ھەرسێ دچن و دگەل موستەفای دئاخڤن لسەر ژیانا وی موستەفا پیچەکێ ھەست دکەت کو گونەھـ یێن کری ئێک ژ وان دەمێ ژیێ وی دوازدە سال بابێ وی دمریت و چەند دەمژمێرەکا پشتی مرنا بابێ خو دچیتە کولانێ یاریا دگەل ھەڤالێن خو دکەت و یا
-                          دووێ برایێ وی یێ پازدە سالی خواندنێ دھێلیت دا موستەفا و خویشک و برایێن وی بەردەوامیێ بدەنە خواندنێ.
-                          ھەرسێ کەس ڤان ھەردوو خالا بەحس دکەن دگەل موستەفای و دبێژنێ تو کەسەکێ گونەھباری و دڤێت دانپێدانێ بکەی.
+                          دیــمەنێ چــارێ
+                          جەمیلا ھەڤژینا موستەفای دھێتە زیندانێ و دبێژیتی ئەز ژی لڤێرێ ھاتبوومە زیندانی کرن بەلێ نوکە ئەزا ئازادم.
+                          موستەفا پرسیار دکەت کو بوچی ئەو ھاتبوو زیندانکرن چنکو ئەو ژنەکا باشە. وێ گوتێ ئەز ژنەکا باش نینینم وەکی تۆ ھزر دکەی و دەمانجەکێ دئینیە دەر و دبێژیتە موستەفای من بکوژە چنکو من خیانەت یا لتە کری.
+                          موستەفا باوەرناکەت و دبێژیت ڤەکولەری تۆ یا نەچارکری ڤان درەوا بکەی. لێ جەمیلە رەتدکەت و دبێژیت ئەو راستیە.
                         </p>
                         <details>
-                          <summary class="head">زێدەتر</summary>
+                          <summary class="head black-text">زێدەتر</summary>
                           <p class="More-details">
-                            دیــمەنێ شـــەشێ
-                            جەلیل دھێتە دەف موستەفای گەلەک ب دلخۆشی ڤە د بێژیت بتنێ بۆ ماوێ ١١ سالان ئەز ھاتمە زیندانکرن. موستەفا ب حێبەتی ڤە دبێژیت ما ١١ سال کێمە؟ جەلیل دبێژیت پێش یێن دی ڤە کێمە.
-                            لدویڤدا موستەفا دبێژیتێ تاوانا تە چیە؟
-                            جەلیل دبێژیت وەلاتییان ماف نینە بزانن بتنێ حکومەتێ ماف ھەیە بزانن.
-                            جەلیل کومەکا تاوانان دبێژیت و شیرەتێ ل موستەفای دکەت بێژیت بلا میدیاکار بھێت داکو دانپێدانێ ب تاوانەکێ بکەم خۆ ھەکە نەکربیت ژی.
-                            موستەفا گەلەک د ئێشیت و دبێژیت ھەمی ئەڤ تاوانە من نەکرینە و ئەز نەشێم ژ قەستا بێژم من یێن کرین.
+                            دیــمەنێ پێـــنجێ
+                            ڤەکولەر دەگەل میدیاکارەکێ و نوژدارەکێ دەرونی و ماموستایەکێ ئایینی کوم دبیت و دبێژیتێ دڤێت ئەڤرو ھوین وەل موستەفای بکەن ھەست بکەت مروڤەکێ گونەھبارە بەلێ ب چ ڕەنگا نە ئێشینن.
+                            پشتی ئەو ھەرسێ دچن و دگەل موستەفای دئاخڤن لسەر ژیانا وی موستەفا پیچەکێ ھەست دکەت کو گونەھـ یێن کری ئێک ژ وان دەمێ ژیێ وی دوازدە سال بابێ وی دمریت و چەند دەمژمێرەکا پشتی مرنا بابێ خو دچیتە کولانێ یاریا دگەل ھەڤالێن خو دکەت و یا
+                            دووێ برایێ وی یێ پازدە سالی خواندنێ دھێلیت دا موستەفا و خویشک و برایێن وی بەردەوامیێ بدەنە خواندنێ.
+                            ھەرسێ کەس ڤان ھەردوو خالا بەحس دکەن دگەل موستەفای و دبێژنێ تو کەسەکێ گونەھباری و دڤێت دانپێدانێ بکەی.
                           </p>
                           <details>
-                            <summary class="head">زێدەتر</summary>
+                            <summary class="head black-text">زێدەتر</summary>
                             <p class="More-details">
-                              دیــمەنێ حەفتێ
-                              میدیاکار دچیتە دەف موستەفای و موستەفا دبێژیتێ من تاوانەکا مەزن ئەنجامدابوو بەلێ ھەتا نوکە من وێرەکی نەبوو بێژم. دبێژیتێ من پەرتووکخانا مەزنا باژێری سوتبوو بەلێ کەسێ نەزانی کو یا ھاتیە سوتن ژلایێ کەسەکێ ڤە چنکو من لوێرێ
-                              کاردکر و من گەلەک حەز ژ پەرتووکان دکر بەلێ کەس نەدھاتە پەرتووکخانێ لەوا من ژی سوت.
+                              دیــمەنێ شـــەشێ
+                              جەلیل دھێتە دەف موستەفای گەلەک ب دلخۆشی ڤە د بێژیت بتنێ بۆ ماوێ ١١ سالان ئەز ھاتمە زیندانکرن. موستەفا ب حێبەتی ڤە دبێژیت ما ١١ سال کێمە؟ جەلیل دبێژیت پێش یێن دی ڤە کێمە.
+                              لدویڤدا موستەفا دبێژیتێ تاوانا تە چیە؟
+                              جەلیل دبێژیت وەلاتییان ماف نینە بزانن بتنێ حکومەتێ ماف ھەیە بزانن.
+                              جەلیل کومەکا تاوانان دبێژیت و شیرەتێ ل موستەفای دکەت بێژیت بلا میدیاکار بھێت داکو دانپێدانێ ب تاوانەکێ بکەم خۆ ھەکە نەکربیت ژی.
+                              موستەفا گەلەک د ئێشیت و دبێژیت ھەمی ئەڤ تاوانە من نەکرینە و ئەز نەشێم ژ قەستا بێژم من یێن کرین.
                             </p>
                             <details>
-                              <summary class="head">زێدەتر</summary>
+                              <summary class="head black-text">زێدەتر</summary>
                               <p class="More-details">
-                                دیــمەنێ ھــەشتێ
-                                ڤەکولەر دھێت و پەڕەکێ ددەتەف موستەفای و دبێژیتێ ئەڤە بریارا ئازادکرنا تە یە بۆ ماوێ دوو ھەیڤان. لسەر تە پێدڤیە بچی و بۆ مە شاھدا بینی کو تە پەرتووکخانە یا سوتی.
+                                دیــمەنێ حەفتێ
+                                میدیاکار دچیتە دەف موستەفای و موستەفا دبێژیتێ من تاوانەکا مەزن ئەنجامدابوو بەلێ ھەتا نوکە من وێرەکی نەبوو بێژم. دبێژیتێ من پەرتووکخانا مەزنا باژێری سوتبوو بەلێ کەسێ نەزانی کو یا ھاتیە سوتن ژلایێ کەسەکێ ڤە چنکو من لوێرێ
+                                کاردکر و من گەلەک حەز ژ پەرتووکان دکر بەلێ کەس نەدھاتە پەرتووکخانێ لەوا من ژی سوت.
                               </p>
                               <details>
-                                <summary class="head">زێدەتر</summary>
+                                <summary class="head black-text">زێدەتر</summary>
                                 <p class="More-details">
-                                  دیــمەنێ نــەھــێ
-                                  موستەفا و جەمیلە ل مالا خۆ بەحسێ وان تاوانا دکەن یێن وان ژ قەستا بخۆ چێکرین و دبێژن دڤێت ئەم شاھدا ژی بخۆ بینین کو مە ئەم تاوانە یێن کری.
+                                  دیــمەنێ ھــەشتێ
+                                  ڤەکولەر دھێت و پەڕەکێ ددەتەف موستەفای و دبێژیتێ ئەڤە بریارا ئازادکرنا تە یە بۆ ماوێ دوو ھەیڤان. لسەر تە پێدڤیە بچی و بۆ مە شاھدا بینی کو تە پەرتووکخانە یا سوتی.
                                 </p>
                                 <details>
-                                  <summary class="head">زێدەتر</summary>
+                                  <summary class="head black-text">زێدەتر</summary>
                                   <p class="More-details">
-                                    دیـــمەنێ دەھــێ
-                                    موستەفا دچیتە دەف رێڤەبەرێ پەرتووکخانێ و دبێژیتێ ببە شاھد بۆ من کو من پەرتووکخانە یا سوتی. رێڤەبەر د بێژیت بەلێ د راستی دا من ئەڤ کارە یێ کری لێ موستەفا دبێژیتێ بێژە موستەفای ئەڤ کارە یێ کری دا ئەز ژ زیندانێ قورتال بم.
+                                    دیــمەنێ نــەھــێ
+                                    موستەفا و جەمیلە ل مالا خۆ بەحسێ وان تاوانا دکەن یێن وان ژ قەستا بخۆ چێکرین و دبێژن دڤێت ئەم شاھدا ژی بخۆ بینین کو مە ئەم تاوانە یێن کری.
                                   </p>
                                   <details>
-                                    <summary class="head">زێدەتر</summary>
+                                    <summary class="head black-text">زێدەتر</summary>
                                     <p class="More-details">
-                                      دیـــمەنێ یــازدێ
-                                      موستەفا رێڤەبەرێ پەرتووکخانێ و ھەڤژینا خۆ جەمیلایێ دبەتە دەف ڤەکولەرا. ھەردوو شاھدیێ ددەن کو موستەفا تاوانبارە. کەیفا ڤەکولەرا دھێت و دبێژنە موستەفای تە دوو حەفتی یێن ھەی کو ھزرا خۆ بکەی سزایەکێ بخۆ بدانی چنکو لڤێ
-                                      زیندانێ تاوانبار بخۆ سزای ددانیت.
+                                      دیـــمەنێ دەھــێ
+                                      موستەفا دچیتە دەف رێڤەبەرێ پەرتووکخانێ و دبێژیتێ ببە شاھد بۆ من کو من پەرتووکخانە یا سوتی. رێڤەبەر د بێژیت بەلێ د راستی دا من ئەڤ کارە یێ کری لێ موستەفا دبێژیتێ بێژە موستەفای ئەڤ کارە یێ کری دا ئەز ژ زیندانێ قورتال بم.
                                     </p>
                                     <details>
-                                      <summary class="head">زێدەتر</summary>
+                                      <summary class="head black-text">زێدەتر</summary>
                                       <p class="More-details">
-                                        دیـــمەنێ دوازدێ
-                                        ڤەکولەر موستەفای دبەتە زیندانێ. یا تژیە ژ مروڤان. موستەفا دگەل ھندەک زیندانیان دئاخڤیت و پرسیار ژ وان دکەت کا چ تاوان کرینە. ھەر ئێک تاوانا خۆ دبێژیت پاشی زیندانیەک دبێژیتە موستەفای بخۆ بنڤە دا بشێی دەمێ رادبی ھزر
-                                        د سزایەکێ گونجای دا بکەی بخۆ.
+                                        دیـــمەنێ یــازدێ
+                                        موستەفا رێڤەبەرێ پەرتووکخانێ و ھەڤژینا خۆ جەمیلایێ دبەتە دەف ڤەکولەرا. ھەردوو شاھدیێ ددەن کو موستەفا تاوانبارە. کەیفا ڤەکولەرا دھێت و دبێژنە موستەفای تە دوو حەفتی یێن ھەی کو ھزرا خۆ بکەی سزایەکێ بخۆ بدانی چنکو لڤێ
+                                        زیندانێ تاوانبار بخۆ سزای ددانیت.
                                       </p>
                                       <details>
-                                        <summary class="head">زێدەتر</summary>
+                                        <summary class="head black-text">زێدەتر</summary>
                                         <p class="More-details">
-                                          دیــمەنێ سێــزدێ
-                                          موستەفا دچیتە دادگەھێ و دبێژیت ئەز ھزردکەم ٢بۆ ٣ ساڵ بەسن بۆ تاوانا من و ئەڤە دبیتە جھێ نەرازیبوونا دادوەری و رینشتنێ پاش دئێخیت بۆ دەمەکێ دی چنکو ھزردکەت تاوانا وی گەلەک ژ سزایێ وی مەزنترە.
+                                          دیـــمەنێ دوازدێ
+                                          ڤەکولەر موستەفای دبەتە زیندانێ. یا تژیە ژ مروڤان. موستەفا دگەل ھندەک زیندانیان دئاخڤیت و پرسیار ژ وان دکەت کا چ تاوان کرینە. ھەر ئێک تاوانا خۆ دبێژیت پاشی زیندانیەک دبێژیتە موستەفای بخۆ بنڤە دا بشێی دەمێ رادبی ھزر
+                                          د سزایەکێ گونجای دا بکەی بخۆ.
                                         </p>
                                         <details>
-                                          <summary class="head">زێدەتر</summary>
+                                          <summary class="head black-text">زێدەتر</summary>
                                           <p class="More-details">
-                                            دیـــمەنێ چــاردێ
-                                            موستەفا دگەل ڤەکولەری دئاخڤیت پشتی دوو حەفتیا و دبێژیتێ من سزایێ کوشتنێ بخۆ یێ دانای. ڤەکولەر دمینتە حێبەتی و دبێژیتێ سزایەکێ گرانە لێ ئەو دبێژیت مرن بۆ من خۆشترە ھەتا ھەتا کویل بم.
+                                            دیــمەنێ سێــزدێ
+                                            موستەفا دچیتە دادگەھێ و دبێژیت ئەز ھزردکەم ٢بۆ ٣ ساڵ بەسن بۆ تاوانا من و ئەڤە دبیتە جھێ نەرازیبوونا دادوەری و رینشتنێ پاش دئێخیت بۆ دەمەکێ دی چنکو ھزردکەت تاوانا وی گەلەک ژ سزایێ وی مەزنترە.
                                           </p>
                                           <details>
-                                            <summary class="head">زێدەتر</summary>
+                                            <summary class="head black-text">زێدەتر</summary>
                                             <p class="More-details">
-                                              دیـــمەنێ پـــازدێ
-                                              موستەفا و جومیلا گەنگەشێ لسەر سزایێ موستەفای دکەن و جەمیلا دبێژیتە موستەفای تۆ کەسەکێ ترسنوکی تە مرن ھەلبژارد چنکو تۆ نەشێی خۆ لبەر چ سزایان بگری.
+                                              دیـــمەنێ چــاردێ
+                                              موستەفا دگەل ڤەکولەری دئاخڤیت پشتی دوو حەفتیا و دبێژیتێ من سزایێ کوشتنێ بخۆ یێ دانای. ڤەکولەر دمینتە حێبەتی و دبێژیتێ سزایەکێ گرانە لێ ئەو دبێژیت مرن بۆ من خۆشترە ھەتا ھەتا کویل بم.
                                             </p>
                                             <details>
-                                              <summary class="head">زێدەتر</summary>
+                                              <summary class="head black-text">زێدەتر</summary>
                                               <p class="More-details">
-                                                دیــمەنێ شـــازدێ
-                                                ڤەکولەر و زەلامێ ئایینی دچنە مالا موستەفای و جەمیلایێ ب درێژی شێوازێ مرنا موستەفای گەنگەشە دکەن و دبێژنە موستەفای ئەگەر تۆ نەشێی خۆ بکوژی گەلەک مروڤان ژ وانا ھەڤال و مروڤ و نزیکێن تە ناڤێ خۆ یێ نڤیسی کو
-                                                ھاریکاریا تە بکەن د کوشتنێ دا. جەمیلا ژی دبێژیت ئەز و سەعید ئەو کەسێ کو پشتی تە دێ بیتە ھەڤژینێ من دێ گەلەک د ھاریکاربین کو زی تۆ بمری دا دەواتا خۆ بکەین.
+                                                دیـــمەنێ پـــازدێ
+                                                موستەفا و جومیلا گەنگەشێ لسەر سزایێ موستەفای دکەن و جەمیلا دبێژیتە موستەفای تۆ کەسەکێ ترسنوکی تە مرن ھەلبژارد چنکو تۆ نەشێی خۆ لبەر چ سزایان بگری.
                                               </p>
                                               <details>
-                                                <summary class="head">زێدەتر</summary>
+                                                <summary class="head black-text">زێدەتر</summary>
                                                 <p class="More-details">
-                                                  دیــمەنێ ھـــەڤدێ
-                                                  ژمارەیەکا نزیکێن موستەفای دگەل جەمیلا و سەعیدی و جەلیلی و زەلامێ ئایینی یێن سەر شانویێ و بەحس ژ چونیەتیا دوماھیک جار کوشتنا موستەفای دکەن پشتی گەنگەشەکا درێژ و رازی بوون لسەر ھندێ کو جەمیلا دەرمانەکێ
-                                                  بکەتە دناڤ ئاڤێ دا و موستەفا ڤەخۆت موستەفای ڤەخوار و دوماھیک پەیڤا وی پشتی ڤەخواری گوت من نامەکا بۆ زارۆکێن خۆ نڤیسی و یا لبن سەرێ من بدەنەڤێ و پاشی دمریت و جەمیلا و سەعید ھەمیێ ڤیدیو دکەن.
+                                                  دیــمەنێ شـــازدێ
+                                                  ڤەکولەر و زەلامێ ئایینی دچنە مالا موستەفای و جەمیلایێ ب درێژی شێوازێ مرنا موستەفای گەنگەشە دکەن و دبێژنە موستەفای ئەگەر تۆ نەشێی خۆ بکوژی گەلەک مروڤان ژ وانا ھەڤال و مروڤ و نزیکێن تە ناڤێ خۆ یێ نڤیسی کو
+                                                  ھاریکاریا تە بکەن د کوشتنێ دا. جەمیلا ژی دبێژیت ئەز و سەعید ئەو کەسێ کو پشتی تە دێ بیتە ھەڤژینێ من دێ گەلەک د ھاریکاربین کو زی تۆ بمری دا دەواتا خۆ بکەین.
                                                 </p>
                                                 <details>
-                                                  <summary class="head">زێدەتر</summary>
+                                                  <summary class="head black-text">زێدەتر</summary>
                                                   <p class="More-details">
-                                                    دیــمەنێ ھــەژدێ
-                                                    میدیاکار دچیتە مالا جەمیلا و سەعیدی و دگەل ھەرسێ زاروکێن موستەفای دئاخڤیت و دبێژیتێ بابێ ھەوە پەرتووکخانە سوت بوو و ژبەر کو خۆ لبەر ڤێ گونەھێ نەگرت خۆ کوشت. و پاشی بتنێ دگەل جەمیلایێ و سەعیدی ئاخفت و
-                                                    گوتێ د وێ ناما موستەفای بۆ زارۆکێن خۆ ھێلای راستیا بابەتی ھەمی تێدا نڤیسی بوو و گوتبوو کو ئەز کەسەکێ بێ گونەھم بەلێ ئەو نامە ژلایێ ڤەکولەران ڤە ھاتبوو دراندن و ھاڤێتن.
+                                                    دیــمەنێ ھـــەڤدێ
+                                                    ژمارەیەکا نزیکێن موستەفای دگەل جەمیلا و سەعیدی و جەلیلی و زەلامێ ئایینی یێن سەر شانویێ و بەحس ژ چونیەتیا دوماھیک جار کوشتنا موستەفای دکەن پشتی گەنگەشەکا درێژ و رازی بوون لسەر ھندێ کو جەمیلا دەرمانەکێ
+                                                    بکەتە دناڤ ئاڤێ دا و موستەفا ڤەخۆت موستەفای ڤەخوار و دوماھیک پەیڤا وی پشتی ڤەخواری گوت من نامەکا بۆ زارۆکێن خۆ نڤیسی و یا لبن سەرێ من بدەنەڤێ و پاشی دمریت و جەمیلا و سەعید ھەمیێ ڤیدیو دکەن.
                                                   </p>
+                                                  <details>
+                                                    <summary class="head black-text">زێدەتر</summary>
+                                                    <p class="More-details">
+                                                      دیــمەنێ ھــەژدێ
+                                                      میدیاکار دچیتە مالا جەمیلا و سەعیدی و دگەل ھەرسێ زاروکێن موستەفای دئاخڤیت و دبێژیتێ بابێ ھەوە پەرتووکخانە سوت بوو و ژبەر کو خۆ لبەر ڤێ گونەھێ نەگرت خۆ کوشت. و پاشی بتنێ دگەل جەمیلایێ و سەعیدی ئاخفت و
+                                                      گوتێ د وێ ناما موستەفای بۆ زارۆکێن خۆ ھێلای راستیا بابەتی ھەمی تێدا نڤیسی بوو و گوتبوو کو ئەز کەسەکێ بێ گونەھم بەلێ ئەو نامە ژلایێ ڤەکولەران ڤە ھاتبوو دراندن و ھاڤێتن.
+                                                    </p>
+                                                  </details>
                                                 </details>
                                               </details>
                                             </details>
@@ -550,11 +762,55 @@
                       </details>
                     </details>
                   </details>
-                </details>
-              </details>
-            </div>
-          </li>
-        </div>
+                </div>
+                <!-- end text Badini -->
+
+                <!-- text sorani -->
+                <div class="tab-pane fade" id="b1-tab-pane" role="tabpanel" aria-labelledby="Sorani" tabindex="0">
+                  <p class="More-details">
+                    هەر کەسێک کورتکراوەی ئەم پەرتووکە بە زمانی کوردی زاراوەی سورانی هەبێ دەتوانێ بو ئێمە بینێرێ
+                    <br><br>
+                    07518405161
+                    <br><br>
+                    07508419579
+                  </p>
+                </div>
+                <!-- end text sorani -->
+
+                <!-- text arabic -->
+                <div class="tab-pane fade" id="c1-tab-pane" role="tabpanel" aria-labelledby="Arabic" tabindex="0">
+                  <p class="More-details">
+                    اي شخص يمتلك الايجاز حول هذا الكتاب باللغة العربية  يمكنه ان يرسل لنا نسخة منها
+                    <br><br>
+                    07518405161
+                    <br><br>
+                    07508419579
+                  </p>
+                </div>
+                <!-- end text arabic -->
+
+                <!-- text english -->
+                <div class="tab-pane fade" id="d1-tab-pane" role="tabpanel" aria-labelledby="English" tabindex="0">
+                  <p class="More-details">
+
+                    <br><br>
+                    07518405161
+                    <br><br>
+                    07508419579
+                  </p>
+                </div>
+                <!-- end text english -->
+
+              </div>
+              <!-- li ser vere de wan tishtan daxil key bo wan zimanen te diven -->
+
+            </details>
+          </div>
+        </li>
+      </div>
+      <!-- END OF NEW BOOOOK -->
+
+
 
 
 
@@ -573,14 +829,9 @@
 
   <footer class="text-muted py-5">
     <div class="container">
-      <p class="float-end mb-1">
-        <a href="#">زڤرین بو سەری⇈</a>
-      </p>
-
-
     </div>
-
   </footer>
+
   <div class="container" style="text-align: center;" dir="ltr">
 
     <p>
@@ -593,9 +844,10 @@
 
   </div>
 
+
+
+  <div id="arrow" title="Go up"><i class="icon ion-md-arrow-dropup-circle"></i></div>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </body>
 
 </html>
