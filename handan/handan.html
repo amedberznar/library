@@ -19,7 +19,128 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+  <!-- icon -->
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
   <style>
+    /* dark mode */
+    .bold-text-dark {
+
+      position:absolute;
+      left:65px;
+      top:4px;
+    }
+
+    .bold-text-light {
+      position:absolute;
+      right:65px;
+      top:4px;
+    }
+
+
+    .dark-mode {
+      background-color: #171f24;
+      color: #fff;
+    }
+
+    .black-text {
+      color: #000;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      margin-right: 40px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked+.slider {
+      background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+
+    /* code go up */
+
+    #arrow {
+      font-size: 48px;
+      position: fixed;
+      right: 20px;
+      bottom: -100px;
+      color: cornflowerblue;
+      transition: 0.5s;
+    }
+
+    #arrow:hover {
+      cursor: pointer;
+      color: #225372;
+      transition: 0.5s;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+
+    .top-ziman {
+      padding-right: 25px;
+    }
+
+    .ziman-button {
+      font-size: 15px;
+    }
+
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -32,6 +153,27 @@
     a {
       text-decoration: none;
     }
+
+    @media (min-width:300px) and (max-width: 768px) {
+      .bold-text-dark {
+        display: none;
+      }
+
+      .bold-text-light {
+        display: none;
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        margin-right: 0px;
+      }
+
+    }
+
+
 
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
@@ -49,18 +191,41 @@
       }
     }
 
+    @media (min-width:1399px) {
+
+      .maincontainer {
+        position: relative;
+        padding: 10px 65px 300px 0px;
+        margin-right: 30px;
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        bottom: 66px;
+        right: 18px;
+      }
+
+
+    }
+
 
 
     /* image-book style */
+
+
+
     .maincontainer {
       position: relative;
-      padding: 10px 0px 300px;
+      padding: 10px 65px 300px 0px;
     }
 
     .thecard {
       position: absolute;
-      width: 100%;
-      height: 90%;
+      width: 200px;
+      height: 299px;
       transform-style: preserve-3d;
       transition: all 2.5s ease;
     }
@@ -71,30 +236,31 @@
 
     .thefront {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: 200px;
+      height: 299px;
       backface-visibility: hidden;
       background: white;
       color: #333;
-      border-radius: 20px;
+      border-radius: 10px;
     }
 
     .theback {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: 200px;
+      height: 299px;
       backface-visibility: hidden;
       background: white;
       color: #333;
-      border-radius: 20px;
+      border-radius: 10px;
       transform: rotateY(180deg);
     }
 
     .b {
-      margin-right: 70px;
       width: 200px;
+      height: 300px;
       border-radius: 10px;
     }
+
 
 
     hr {
@@ -105,27 +271,6 @@
       margin-left: 25px;
       text-align: center;
     }
-
-    /* Search bar */
-    /* #searchbar {
-      padding: 3px 10px;
-      font-size: 18px;
-      border-radius: 15px;
-      border: solid grey 1px;
-      margin: 10px 70px 0px 0px;
-      display: block;
-    }
-
-    input[type=text] {
-      width: 60%;
-      -webkit-transition: width 0.15s ease-in-out;
-      transition: width 0.15s ease-in-out;
-    }
-
-
-    input[type=text]:focus {
-      width: 60%;
-    } */
 
     #list {
       font-size: 1.5em;
@@ -157,6 +302,7 @@
 
     .searchbox input {
       line-height: 40px;
+      outline: none;
       background: none;
       border: none;
       click: none;
@@ -268,7 +414,7 @@
     }
 
     details[open] {
-      background: White;
+      background: white;
       -webkit-box-shadow: 3px 4px 8px #bbbbbb;
       box-shadow: 3px 4px 8px #bbbbbb;
       border-radius: 10px 10px 10px 10px;
@@ -329,6 +475,38 @@
         }
       }
     }
+
+    // go up script
+    window.onload = function() {
+
+      var button = document.getElementById('arrow');
+
+      window.onscroll = function() {
+        if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+          button.style.bottom = '20px';
+        } else {
+          button.style.bottom = '-100px';
+        }
+      };
+
+      button.addEventListener('click', function() {
+        document.body.scrollTop = '0';
+        document.documentElement.scrollTop = '0';
+      });
+
+    };
+
+
+    // dark mode script
+    function dark() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+
+      var text = document.head;
+      text.classList.toggle("black-text");
+    }
+
+
   </script>
 
 </head>
@@ -386,9 +564,18 @@
         </div>
       </div>
 
+      <label class="switch">
+        <input type="checkbox" onclick="dark()">
+        <span class="slider round"></span>
+        <b class="bold-text-dark" >dark</b>
+        <b class="bold-text-light" >light</b>
+      </label>
+
       <div class="row">
 
 
+
+        <!-- NEW BOOOOK -->
         <div class="col-lg-4 col-md-5">
           <li class="animals">
             <hr>
@@ -407,274 +594,372 @@
 
             <div class="wrab">
               <details>
-                <summary class="head">کورتیا پەڕتووکێ</summary>
-                <p class="More-details">
-                  ژلایێ : ئەواب لوقمان
-                  <br><br>
-                  ئەگەرێ سەرەکیێ دروسکرنا ڤێ پەرتوکێ ژ دەسپێکێ و دێ هەرمینیت گەهاندنا مفای بو خاندەڤای، دپەرتوکا نهێنیدا پەیڤین بیسوچار ماموستان هاتینە نڤێسین کوب ئێک دەنگ د ئاخڤن بوو گەهاندنا مفای بوو خواندەڤای ، دڤێپەرتوکێدا بساناهی ترین رێکێن
-                  هاتینە
-                  شلوڤە کرن بوو بساناهی کرنا رێکێ لبەر هەر کەسەکی داکو بگەهیتە ئارمانجێنخو
-                </p>
-                <details>
-                  <summary class="head">زێدەتر</summary>
-                  <p class="More-details">
-                    نڤیسەر بشێوەکێ زوور پەیڤا (you) بکارتینت داکو خواندەڤا بباشی بهێتە گرێدان ب ئەوا دخوینت ڤە، ژبەرکو ئارمانجا ویا سەرەکی ئەوە خواندەڤا بهێتە گرێدان ب پەرتوکێڤە دا مفایێ سەرەکیێ پەرتوکێ بدەست خوڤە بینت
-                  </p>
-                </details>
+                <summary class="head black-text">کورتیا پەڕتووکێ</summary>
+                <!-- eve ew dokmen seri ne -->
+                <ul class="top-ziman nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="ziman-button nav-link active" id="Badini" data-bs-toggle="tab" data-bs-target="#a1-tab-pane" type="button" role="tab" aria-controls="Badini-tab-pane" aria-selected="true">بادینی</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="ziman-button nav-link" id="Sorani" data-bs-toggle="tab" data-bs-target="#b1-tab-pane" type="button" role="tab" aria-controls="Sorani-tab-pane" aria-selected="false">سۆرانی</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="ziman-button nav-link" id="Arabic" data-bs-toggle="tab" data-bs-target="#c1-tab-pane" type="button" role="tab" aria-controls="Arabic-tab-pane" aria-selected="false">العربية</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="ziman-button nav-link" id="English" data-bs-toggle="tab" data-bs-target="#d1-tab-pane" type="button" role="tab" aria-controls="English-tab-pane" aria-selected="false">English</button>
+                  </li>
+                </ul>
+                <!-- eve domahika wan dokmen seri ne -->
+
+                <!-- li vere de wan tishtan daxil key bo wan zimanen te diven -->
+                <div class="tab-content" id="myTabContent">
+
+                  <!-- text Badini -->
+                  <div class="tab-pane fade show active" id="a1-tab-pane" role="tabpanel" aria-labelledby="Badini" tabindex="0">
+                    <p class="More-details">
+                      ژلایێ : ئەواب لوقمان
+                      <br><br>
+                      ئەگەرێ سەرەکیێ دروسکرنا ڤێ پەرتوکێ ژ دەسپێکێ و دێ هەرمینیت گەهاندنا مفای بو خاندەڤای، دپەرتوکا نهێنیدا پەیڤین بیسوچار ماموستان هاتینە نڤێسین کوب ئێک دەنگ د ئاخڤن بوو گەهاندنا مفای بوو خواندەڤای ، دڤێپەرتوکێدا بساناهی ترین رێکێن
+                      هاتینە
+                      شلوڤە کرن بوو بساناهی کرنا رێکێ لبەر هەر کەسەکی داکو بگەهیتە ئارمانجێنخو
+                    </p>
+                    <details>
+                      <summary class="head black-text">زێدەتر</summary>
+                      <p class="More-details">
+                        نڤیسەر بشێوەکێ زوور پەیڤا (you) بکارتینت داکو خواندەڤا بباشی بهێتە گرێدان ب ئەوا دخوینت ڤە، ژبەرکو ئارمانجا ویا سەرەکی ئەوە خواندەڤا بهێتە گرێدان ب پەرتوکێڤە دا مفایێ سەرەکیێ پەرتوکێ بدەست خوڤە بینت
+                      </p>
+                    </details>
+                  </div>
+                  <!-- end text Badini -->
+
+                  <!-- text sorani -->
+                  <div class="tab-pane fade" id="b1-tab-pane" role="tabpanel" aria-labelledby="Sorani" tabindex="0">
+                    <p class="More-details">
+                      هەر کەسێک کورتکراوەی ئەم پەرتووکە بە زمانی کوردی زاراوەی سورانی هەبێ دەتوانێ بو ئێمە بینێرێ
+                      <br><br>
+                      07518405161
+                      <br><br>
+                      07508419579
+                    </p>
+                  </div>
+                  <!-- end text sorani -->
+
+                  <!-- text arabic -->
+                  <div class="tab-pane fade" id="c1-tab-pane" role="tabpanel" aria-labelledby="Arabic" tabindex="0">
+                    <p class="More-details">
+                      اي شخص يمتلك الايجاز حول هذا الكتاب باللغة العربية يمكنه ان يرسل لنا نسخة منها
+                      <br><br>
+                      07518405161
+                      <br><br>
+                      07508419579
+                    </p>
+                  </div>
+                  <!-- end text arabic -->
+
+                  <!-- text english -->
+                  <div class="tab-pane fade" id="d1-tab-pane" role="tabpanel" aria-labelledby="English" tabindex="0">
+                    <p class="More-details">
+
+                      <br><br>
+                      07518405161
+                      <br><br>
+                      07508419579
+                    </p>
+                  </div>
+                  <!-- end text english -->
+
+                </div>
+                <!-- li ser vere de wan tishtan daxil key bo wan zimanen te diven -->
+
               </details>
             </div>
           </li>
         </div>
+        <!-- END OF NEW BOOOOK -->
 
 
-        <div class="col-lg-4 col-md-5">
-          <li class="animals">
-            <hr>
-            <p class="book-name">هاوکێشەکانی پێشەنگبوون و ژیانێکی کاریگەر</p>
-            <hr>
-            <div class="maincontainer">
-              <div class="thecard">
-                <div class="thefront">
-                  <img class="b" src="handan-images/2.jpeg" alt="">
-                </div>
-                <div class="theback">
-                  <img class="b" src="handan-images/2b.jpeg" alt="">
-                </div>
+
+        <!-- NEW BOOOOK -->
+      <div class="col-lg-4 col-md-5">
+        <li class="animals">
+          <hr>
+          <p class="book-name">هاوکێشەکانی پێشەنگبوون و ژیانێکی کاریگەر</p>
+          <hr>
+          <div class="maincontainer">
+            <div class="thecard">
+              <div class="thefront">
+                <img class="b" src="handan-images/2.jpeg" alt="">
+              </div>
+              <div class="theback">
+                <img class="b" src="handan-images/2b.jpeg" alt="">
               </div>
             </div>
+          </div>
 
-            <div class="wrab">
-              <details>
-                <summary class="head">کورتیا پەڕتووکێ</summary>
-                <p class="More-details">
-                  ژلایێ : ئامەد عبدالحميد أيوب
-                  <br><br>
-                  ئەڤ پەرتووکە پێکدهێتن ژ پێنج هاوکێشەێین سەرەکی
-                  <br><br>
-                  ١. هاوکێشا ئێکێ پێکهاتییە ژ ( بوون )
-                  <br>
-                  ٢. هاوکێشا دویێ پێکهاتییە ژ ( بونیاد )
-                  <br>
-                  ٣. هاوکێشا سیێ پێکهاتییە ژ ( بەربەست )
-                  <br>
-                  ٤. هاوکێشا چارێ پێکهاتییە ژ ( بردنەوە )
-                  <br>
-                  ٥. هاوکێشا پێنجێ پێکهاتییە ژ ( بزە )
+          <div class="wrab">
+            <details>
+              <summary class="head black-text">کورتیا پەڕتووکێ</summary>
+              <!-- eve ew dokmen seri ne -->
+              <ul class="top-ziman nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="ziman-button nav-link active" id="Badini" data-bs-toggle="tab" data-bs-target="#a2-tab-pane" type="button" role="tab" aria-controls="Badini-tab-pane" aria-selected="true">بادینی</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="ziman-button nav-link" id="Sorani" data-bs-toggle="tab" data-bs-target="#b2-tab-pane" type="button" role="tab" aria-controls="Sorani-tab-pane" aria-selected="false">سۆرانی</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="ziman-button nav-link" id="Arabic" data-bs-toggle="tab" data-bs-target="#c2-tab-pane" type="button" role="tab" aria-controls="Arabic-tab-pane" aria-selected="false">العربية</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="ziman-button nav-link" id="English" data-bs-toggle="tab" data-bs-target="#d2-tab-pane" type="button" role="tab" aria-controls="English-tab-pane" aria-selected="false">English</button>
+                </li>
+              </ul>
+              <!-- eve domahika wan dokmen seri ne -->
 
-                </p>
-                <details>
-                  <summary class="head">زێدەتر</summary>
+              <!-- li vere de wan tishtan daxil key bo wan zimanen te diven -->
+              <div class="tab-content" id="myTabContent">
+
+                <!-- text Badini -->
+                <div class="tab-pane fade show active" id="a2-tab-pane" role="tabpanel" aria-labelledby="Badini" tabindex="0">
                   <p class="More-details">
-                    ئێک : هاوکێشەی بوون
+                    ژلایێ : ئامەد عبدالحميد أيوب
                     <br><br>
-                    ئەڤ هاوکێشەیە پێکهاتییە ژ پێنج تەوەرێن گرنگ و سەرەکی، کو تێدا بەحسێ هندەک خالێن گرنگ دکەت د ڤەدیتن و ئاڤاکرنا کەسایەتیا خو
+                    ئەڤ پەرتووکە پێکدهێتن ژ پێنج هاوکێشەێین سەرەکی
                     <br><br>
-                    هیوا-
+                    ١. هاوکێشا ئێکێ پێکهاتییە ژ ( بوون )
                     <br>
-                    بەهاکان-
+                    ٢. هاوکێشا دویێ پێکهاتییە ژ ( بونیاد )
                     <br>
-                    متمانەبەخۆبوون-
+                    ٣. هاوکێشا سیێ پێکهاتییە ژ ( بەربەست )
                     <br>
-                    خۆتبە-
+                    ٤. هاوکێشا چارێ پێکهاتییە ژ ( بردنەوە )
                     <br>
-                    کات-
+                    ٥. هاوکێشا پێنجێ پێکهاتییە ژ ( بزە )
+
                   </p>
                   <details>
-                    <summary class="head">زێدەتر</summary>
+                    <summary class="head black-text">زێدەتر</summary>
                     <p class="More-details">
-                      هیوا
+                      ئێک : هاوکێشەی بوون
                       <br><br>
-                      لدەمێ کو مە هیڤی هەبیت ئەم دشێین ژیانەکا نی دروست بکەین، وەکی ئەم دزانین کو هەر ژ دایکبوونەک هیڤیەکا نییە ژبو هندێ کو مروڤەکێ دیتر بهێتە ناڤ ژیانێ و بشێت کارەکێ بۆ خو و بو دەورەبەرێن خو بکەت
+                      ئەڤ هاوکێشەیە پێکهاتییە ژ پێنج تەوەرێن گرنگ و سەرەکی، کو تێدا بەحسێ هندەک خالێن گرنگ دکەت د ڤەدیتن و ئاڤاکرنا کەسایەتیا خو
+                      <br><br>
+                      هیوا
+                      <br>
+                      بەهاکان
+                      <br>
+                      متمانەبەخۆبوون
+                      <br>
+                      خۆتبە
+                      <br>
+                      کات
                     </p>
                     <details>
-                      <summary class="head">زێدەتر</summary>
+                      <summary class="head black-text">زێدەتر</summary>
                       <p class="More-details">
-                        بەهاکان
+                        هیوا
                         <br><br>
-                        ل ڤێرە سەرنجا وە دێ بو فلمەکێ راکێشم کو ناڤێ وی ( The purge )ە :
-                        <br><br>
-                        هزرا فلمی لسەر وێ چەندێ د ئاخڤیت ئەگەر د سالەکێدا ( دماوێ ٣٦٥ ڕۆژا د سالەکێدا ) ١٢ دەمژمێر هەبن، هەر چ یاسایەک هەیە کار پێ نەهێتە کرن و کەس نەهێتە سزادان، ئەگەر بهێت توڵا خو ڤەکەت! هەکەر کەسەکێ کەرب ژ کەسەکێ ڤەببن بچیت بقوتیت، یان
-                        بکوژیت، ئانکو یێ ئازاد بیت چ بکەت، ئەرێ دێ چ رویدەت؟
-                        <br><br>
-                        ئەڤ فلمە بەحس ژوێ چەندێ دکەت هەر چ تشتێ کو مێشکێ مروڤی قەبیل نەکەت دناڤ ئەڤی فلمی دا رویددەت، ژ بەر چ؟ چونکی خەلکەکێ زور هەیە دناڤ ناخێ خودا کومەلەک پێکدادان دناڤ بەرا خو و بەهایێن خودا هەیە، و دگەل بهایێن خو یێ رێک نینە، نزانیت
-                        کو بهایێن وی چنە، یان ژی رێکنەخستیینە، یان ژی ب مەعنایەکا دی باوەری ب بهایێن خو نینە
-                        <br><br>
-                        متمانەبەخۆبوون-
-                        <br>
-                        خۆتبە-
-                        <br>
-                        کات-
-                        <br><br>
-                        ئەڤ هەرسێکێن ل سەری دناڤ پەڕتووکێ دا ب شێوەکێ گەلەک جان هاتینە شەرح کرن و دێ مفای ژێ وەرگرن
+                        لدەمێ کو مە هیڤی هەبیت ئەم دشێین ژیانەکا نی دروست بکەین، وەکی ئەم دزانین کو هەر ژ دایکبوونەک هیڤیەکا نییە ژبو هندێ کو مروڤەکێ دیتر بهێتە ناڤ ژیانێ و بشێت کارەکێ بۆ خو و بو دەورەبەرێن خو بکەت
                       </p>
                       <details>
-                        <summary class="head">زێدەتر</summary>
+                        <summary class="head black-text">زێدەتر</summary>
                         <p class="More-details">
-                          دوو : هاوکێشەی بونیاد
+                          بەهاکان
                           <br><br>
-                          دڤێ هاوکێشێ دا بەحس لسەر ئاڤاکرنا کەسایەتیا تە دکەت د چەند بوارێن جودا جودادا، ل بەشێن دیێن پەڕتووکێ ب شێوەکێ جوان هەمیان روندکەت، کو سەرجەنێ ئەڤان خاڵان پێک دهێت ژ شەش خڵێن سەرەکی
+                          ل ڤێرە سەرنجا وە دێ بو فلمەکێ راکێشم کو ناڤێ وی ( The purge )ە :
                           <br><br>
-                          بوونیادنانی ئاوەز (عەقڵ)-
+                          هزرا فلمی لسەر وێ چەندێ د ئاخڤیت ئەگەر د سالەکێدا ( دماوێ ٣٦٥ ڕۆژا د سالەکێدا ) ١٢ دەمژمێر هەبن، هەر چ یاسایەک هەیە کار پێ نەهێتە کرن و کەس نەهێتە سزادان، ئەگەر بهێت توڵا خو ڤەکەت! هەکەر کەسەکێ کەرب ژ کەسەکێ ڤەببن بچیت بقوتیت،
+                          یان
+                          بکوژیت، ئانکو یێ ئازاد بیت چ بکەت، ئەرێ دێ چ رویدەت؟
+                          <br><br>
+                          ئەڤ فلمە بەحس ژوێ چەندێ دکەت هەر چ تشتێ کو مێشکێ مروڤی قەبیل نەکەت دناڤ ئەڤی فلمی دا رویددەت، ژ بەر چ؟ چونکی خەلکەکێ زور هەیە دناڤ ناخێ خودا کومەلەک پێکدادان دناڤ بەرا خو و بەهایێن خودا هەیە، و دگەل بهایێن خو یێ رێک نینە،
+                          نزانیت
+                          کو بهایێن وی چنە، یان ژی رێکنەخستیینە، یان ژی ب مەعنایەکا دی باوەری ب بهایێن خو نینە
+                          <br><br>
+                          متمانەبەخۆبوون
                           <br>
-                          بونیادی سۆز-
+                          خۆتبە
                           <br>
-                          بونیادی ڕەفتار-
-                          <br>
-                          بونیادی ڕۆح-
-                          <br>
-                          گرنگی پێشەنگ لە ژیانماندا-
-                          <br>
-                          بونیادی لێهاتوویی-
+                          کات
+                          <br><br>
+                          ئەڤ هەرسێکێن ل سەری دناڤ پەڕتووکێ دا ب شێوەکێ گەلەک جان هاتینە شەرح کرن و دێ مفای ژێ وەرگرن
                         </p>
                         <details>
-                          <summary class="head">زێدەتر</summary>
+                          <summary class="head black-text">زێدەتر</summary>
                           <p class="More-details">
+                            دوو : هاوکێشەی بونیاد
+                            <br><br>
+                            دڤێ هاوکێشێ دا بەحس لسەر ئاڤاکرنا کەسایەتیا تە دکەت د چەند بوارێن جودا جودادا، ل بەشێن دیێن پەڕتووکێ ب شێوەکێ جوان هەمیان روندکەت، کو سەرجەنێ ئەڤان خاڵان پێک دهێت ژ شەش خڵێن سەرەکی
+                            <br><br>
                             بوونیادنانی ئاوەز (عەقڵ)
-                            <br><br>
-                            ئەم هەمی وێ چەندێ دزانین ئەو تشتێ مروڤی جودا دکەت ژ گەلەک بونەوەرێن دی، بریتییە ژ هەبوونا مێشکی (عەقڵی)، ئەو مێشکێ کو خودایێ مەزن دایە مە تو دشێی ئەوان تشتێن کو رویددەن شیکار بکەی و شرۆڤە بکەی و چارەسەریا ئاریشان پێ بکەی، کو
-                            ئەڤە کارێن مێشکی نە کو د گەلەک کتێبێن زانستیدا بەحس ژێ دهێنە کرن، بەلێ دڤێرەدا مە ئاریشەک یا هەی، کو خەلکەکێ زۆر هەیە ئەڤی مێشکێ جوان ب شێوەکێ باش بکار نا ئینن کو مفا هەبیت بو ژیانا وی
-                            <br><br>
-                            بونیادی سۆز-
                             <br>
-                            بونیادی ڕەفتار-
+                            بونیادی سۆز
                             <br>
-                            بونیادی ڕۆح-
+                            بونیادی ڕەفتار
                             <br>
-                            گرنگی پێشەنگ لە ژیانماندا-
+                            بونیادی ڕۆح
                             <br>
-                            بونیادی لێهاتوویی-
-                            <br><br>
-                            ئەڤ خالێن لسەری ژی دناڤ پەڕتووکێ دا ب شێوەکێ جوان هاتینە شروڤەکرن
+                            گرنگی پێشەنگ لە ژیانماندا
+                            <br>
+                            بونیادی لێهاتوویی
                           </p>
                           <details>
-                            <summary class="head">زێدەتر</summary>
+                            <summary class="head black-text">زێدەتر</summary>
                             <p class="More-details">
-                              سێیەم : هاوکێشەی بەربەست
+                              بوونیادنانی ئاوەز (عەقڵ)
                               <br><br>
-                              دڤێ هاوکێشێ دا مەبەست ژوان بەربەستانە کو دهێنە درێکا مرۆڤی دا بو وێ ئارمانجا کو مە دڤێت بدەست خوڤە بینین د ژیانێ دا، دهەمان دەم دا بەحس ژ چارەسەریێن وێ دکەت، سەرجەمێ خالێن ئەڤێ هاوکێشێ چار خالێن سەرەکینە
+                              ئەم هەمی وێ چەندێ دزانین ئەو تشتێ مروڤی جودا دکەت ژ گەلەک بونەوەرێن دی، بریتییە ژ هەبوونا مێشکی (عەقڵی)، ئەو مێشکێ کو خودایێ مەزن دایە مە تو دشێی ئەوان تشتێن کو رویددەن شیکار بکەی و شرۆڤە بکەی و چارەسەریا ئاریشان پێ بکەی،
+                              کو
+                              ئەڤە کارێن مێشکی نە کو د گەلەک کتێبێن زانستیدا بەحس ژێ دهێنە کرن، بەلێ دڤێرەدا مە ئاریشەک یا هەی، کو خەلکەکێ زۆر هەیە ئەڤی مێشکێ جوان ب شێوەکێ باش بکار نا ئینن کو مفا هەبیت بو ژیانا وی
                               <br><br>
-                              بەربەستەکان-
+                              بونیادی سۆز
                               <br>
-                              بەربەستی خێزان-
+                              بونیادی ڕەفتار
                               <br>
-                              بەربەستی سیستمی وڵات-
+                              بونیادی ڕۆح
                               <br>
-                              چارەسەری بەربەستەکان-
+                              گرنگی پێشەنگ لە ژیانماندا
+                              <br>
+                              بونیادی لێهاتوویی
+                              <br><br>
+                              ئەڤ خالێن لسەری ژی دناڤ پەڕتووکێ دا ب شێوەکێ جوان هاتینە شروڤەکرن
                             </p>
                             <details>
-                              <summary class="head">زێدەتر</summary>
+                              <summary class="head black-text">زێدەتر</summary>
                               <p class="More-details">
+                                سێیەم : هاوکێشەی بەربەست
+                                <br><br>
+                                دڤێ هاوکێشێ دا مەبەست ژوان بەربەستانە کو دهێنە درێکا مرۆڤی دا بو وێ ئارمانجا کو مە دڤێت بدەست خوڤە بینین د ژیانێ دا، دهەمان دەم دا بەحس ژ چارەسەریێن وێ دکەت، سەرجەمێ خالێن ئەڤێ هاوکێشێ چار خالێن سەرەکینە
+                                <br><br>
                                 بەربەستەکان
-                                <br><br>
-                                ئەم هەر چاوا سەحکەینە ژیانێ کومەکا بەربەستا ( رێگر ) هەنە کو دهێنە د رێکا مەدا، و پێدڤییە ئەم د ئەوان بەربەستان بگەهین و رەفتارێ دگەل بکەین، هەکەر تو پەڕتووکێ بخینی دێ بینی دناڤ هاوکێشەیا بەربەست دا دی بوتە لسەر جورێن
-                                بەربەستان ئاخڤیت، و دێ چاوا رەفتارێ دگەل ئەوان بەربەستان کەی، و دێ چاوا شێی ب ساناهی لسەر ئەوان بەربەستان زاڵ بی
-                                <br><br>
-                                بەربەستی خێزان-
                                 <br>
-                                بەربەستی سیستمی وڵات-
+                                بەربەستی خێزان
                                 <br>
-                                چارەسەری بەربەستەکان-
-                                <br><br>
-                                ئەگەر تو پەڕتووکێ بخینی چێدبیت ژ ئەڤێ کورتکرنا ئەز ددەم گەلەک پتر مفای ب گەهینتە تە
+                                بەربەستی سیستمی وڵات
+                                <br>
+                                چارەسەری بەربەستەکان
                               </p>
                               <details>
-                                <summary class="head">زێدەتر</summary>
+                                <summary class="head black-text">زێدەتر</summary>
                                 <p class="More-details">
-                                  چوارەم : هاوکێشەی بردنەوە
+                                  بەربەستەکان
                                   <br><br>
-                                  دڤێ هاوکێشێ دا لسەر چەند خالەکان د ئاخڤیت کو تایبەتن ب وێ چەندێ کو چاوا بشێین د ژیانێدا سەرکەفتی ( براوە ) بین، ئانکو کەسەک بین کو بەرهەمێ مە یێ زوربیت، هەم ژ بو مە و هەم بو دەوروبەرێ مەژی، سەرجەمێ خالێن ئەڤێ هاوکێشێ
-                                  حەفت خالێن سەرەکینە
+                                  ئەم هەر چاوا سەحکەینە ژیانێ کومەکا بەربەستا ( رێگر ) هەنە کو دهێنە د رێکا مەدا، و پێدڤییە ئەم د ئەوان بەربەستان بگەهین و رەفتارێ دگەل بکەین، هەکەر تو پەڕتووکێ بخینی دێ بینی دناڤ هاوکێشەیا بەربەست دا دی بوتە لسەر جورێن
+                                  بەربەستان ئاخڤیت، و دێ چاوا رەفتارێ دگەل ئەوان بەربەستان کەی، و دێ چاوا شێی ب ساناهی لسەر ئەوان بەربەستان زاڵ بی
                                   <br><br>
-                                  چۆن بڕیارێکی دروست بدەم؟-
+                                  بەربەستی خێزان
                                   <br>
-                                  چۆن ویست (ئیرادە)م بەهێز بکەم؟-
+                                  بەربەستی سیستمی وڵات
                                   <br>
-                                  دەستپێشخەری-
-                                  <br>
-                                  کێ هانت دەدات؟-
-                                  <br>
-                                  کارکردن بە گرووپ-
-                                  <br>
-                                  سەرکردایەتی-
-                                  <br>
-                                  چۆن گۆڕانکاری لە خۆم و چواردەورمدا بکەم؟-
+                                  چارەسەری بەربەستەکان
+                                  <br><br>
+                                  ئەگەر تو پەڕتووکێ بخینی چێدبیت ژ ئەڤێ کورتکرنا ئەز ددەم گەلەک پتر مفای ب گەهینتە تە
                                 </p>
                                 <details>
-                                  <summary class="head">زێدەتر</summary>
+                                  <summary class="head black-text">زێدەتر</summary>
                                   <p class="More-details">
+                                    چوارەم : هاوکێشەی بردنەوە
+                                    <br><br>
+                                    دڤێ هاوکێشێ دا لسەر چەند خالەکان د ئاخڤیت کو تایبەتن ب وێ چەندێ کو چاوا بشێین د ژیانێدا سەرکەفتی ( براوە ) بین، ئانکو کەسەک بین کو بەرهەمێ مە یێ زوربیت، هەم ژ بو مە و هەم بو دەوروبەرێ مەژی، سەرجەمێ خالێن ئەڤێ هاوکێشێ
+                                    حەفت خالێن سەرەکینە
+                                    <br><br>
                                     چۆن بڕیارێکی دروست بدەم؟
-                                    <br><br>
-                                    بڕیاردان بکارئینانا حەزێ یە بۆ ئێکلاکرنا ئەوان بابەتێن کو پتر ژ جێگرەکێ هەیین، ئەو ژی بو بدەست ڤە ئینانا ئارمانجەکێ
-                                    <br><br>
-                                    بۆنموونە : کەسەکێ دڤێت سەفەرەکێ بکەت، چەند رێکەک هەنە بو سەفەرکرنێ، دڤێت حەزا خو بکاربینیت، و پاشی زانیاریان وەربگریت، پێدڤییە حەزا خو بکاربینیت کادێ کیژ رێکێ هەلبژێریت، ئەرێ دێ سەفەرا خو ئەنجام دەت یان نە ئەگەر ئەنجام
-                                    دا دێ کیژ رێکێ هەلبژێریت؟
-                                    <br><br>
-                                    ئاها دبێژنە ڤێ چەندێ بریاردان هەر وەکی دبێژن : ژیان یا پێکهاتییە ژ سەرجەمێن بریارێن تە
-                                    <br><br>
-                                    چۆن ویست (ئیرادە)م بەهێز بکەم؟-
                                     <br>
-                                    دەستپێشخەری-
+                                    چۆن ویست (ئیرادە)م بەهێز بکەم؟
                                     <br>
-                                    کێ هانت دەدات؟-
+                                    دەستپێشخەری
                                     <br>
-                                    کارکردن بە گرووپ-
+                                    کێ هانت دەدات؟
                                     <br>
-                                    سەرکردایەتی-
+                                    کارکردن بە گرووپ
                                     <br>
-                                    چۆن گۆڕانکاری لە خۆم و چواردەورمدا بکەم؟-
-                                    <br><br>
-                                    بو زانینا هەمی بابەتێ ( هاوکێشەی بردنەوە ) سەرەدانا پەڕتووکێ بکە
+                                    سەرکردایەتی
+                                    <br>
+                                    چۆن گۆڕانکاری لە خۆم و چواردەورمدا بکەم؟
                                   </p>
                                   <details>
-                                    <summary class="head">زێدەتر</summary>
+                                    <summary class="head black-text">زێدەتر</summary>
                                     <p class="More-details">
-                                      پێنجەم : هاوکێشەی بزە
+                                      چۆن بڕیارێکی دروست بدەم؟
                                       <br><br>
-                                      لڤێرە ئەم گەهشتینە دوماهیک هاوکێشە دناڤ ئەڤێ پەرتووکێ دا، دڤێ هاوکێشێ دا لسەر هوکارێن دڵخۆشی و ئارامییێ دئاخڤیت، کو سەرجەمێ خالێن ئەڤێ هاوکێشێ دبنە حەفت خالێن سەرەکی
+                                      بڕیاردان بکارئینانا حەزێ یە بۆ ئێکلاکرنا ئەوان بابەتێن کو پتر ژ جێگرەکێ هەیین، ئەو ژی بو بدەست ڤە ئینانا ئارمانجەکێ
                                       <br><br>
-                                      بەخشین کاری مەزنەکانە-
+                                      بۆنموونە : کەسەکێ دڤێت سەفەرەکێ بکەت، چەند رێکەک هەنە بو سەفەرکرنێ، دڤێت حەزا خو بکاربینیت، و پاشی زانیاریان وەربگریت، پێدڤییە حەزا خو بکاربینیت کادێ کیژ رێکێ هەلبژێریت، ئەرێ دێ سەفەرا خو ئەنجام دەت یان نە ئەگەر
+                                      ئەنجام
+                                      دا دێ کیژ رێکێ هەلبژێریت؟
+                                      <br><br>
+                                      ئاها دبێژنە ڤێ چەندێ بریاردان هەر وەکی دبێژن : ژیان یا پێکهاتییە ژ سەرجەمێن بریارێن تە
+                                      <br><br>
+                                      چۆن ویست (ئیرادە)م بەهێز بکەم؟
                                       <br>
-                                      لە کێ خۆش بین؟-
+                                      دەستپێشخەری
                                       <br>
-                                      چۆن خۆشگوزەران بم؟-
+                                      کێ هانت دەدات؟
                                       <br>
-                                      چۆن داهێنان ئەنجام بدەم؟-
+                                      کارکردن بە گرووپ
                                       <br>
-                                      چۆن وزەکەت بارگاوی بکەیتەوە؟-
+                                      سەرکردایەتی
                                       <br>
-                                      سوپاسگوزاری-
-                                      <br>
-                                      کێ بۆت دوگری؟-
+                                      چۆن گۆڕانکاری لە خۆم و چواردەورمدا بکەم؟
+                                      <br><br>
+                                      بو زانینا هەمی بابەتێ ( هاوکێشەی بردنەوە ) سەرەدانا پەڕتووکێ بکە
                                     </p>
                                     <details>
-                                      <summary class="head">زێدەتر</summary>
+                                      <summary class="head black-text">زێدەتر</summary>
                                       <p class="More-details">
-                                        بەخشین کاری مەزنەکانە
+                                        پێنجەم : هاوکێشەی بزە
                                         <br><br>
-                                        پشتی کو مرۆڤی خو و هەبوونا خو سەلماند و شیا کەسایەتیا خۆ ئاڤا بکەت و بەرەڤ سەرکەفتنێن خۆ چوو، پێدڤییە خۆشی بۆ ژیانا وی و دەوروبەرێن ویژی درووست ببیت، ژبەر ڤێ چەندێ دڤی بەشیدا دێ چینە سەر خاڵا دەستپێکێ د هاوکێشەیا
-                                        بزە (کەنی، زەردەخەنە) دا کو ئەوژی پێکهاتییە ژ بەخشین
+                                        لڤێرە ئەم گەهشتینە دوماهیک هاوکێشە دناڤ ئەڤێ پەرتووکێ دا، دڤێ هاوکێشێ دا لسەر هوکارێن دڵخۆشی و ئارامییێ دئاخڤیت، کو سەرجەمێ خالێن ئەڤێ هاوکێشێ دبنە حەفت خالێن سەرەکی
+                                        <br><br>
+                                        بەخشین کاری مەزنەکانە
+                                        <br>
+                                        لە کێ خۆش بین؟
+                                        <br>
+                                        چۆن خۆشگوزەران بم؟
+                                        <br>
+                                        چۆن داهێنان ئەنجام بدەم؟
+                                        <br>
+                                        چۆن وزەکەت بارگاوی بکەیتەوە؟
+                                        <br>
+                                        سوپاسگوزاری
+                                        <br>
+                                        کێ بۆت دوگری؟
                                       </p>
                                       <details>
-                                        <summary class="head">زێدەتر</summary>
+                                        <summary class="head black-text">زێدەتر</summary>
                                         <p class="More-details">
-                                          یا ئاشکەرایە کو ئەو خۆشییا ئەم د بەخشینە کەسێ بەرامبەری خو، ئەڤڕوکە یان ژی سبەهی بیت دێ بومەژی زڤریتە ڤە، پێدڤییە دڤێرەدا بزانین جورێن بەخشینێ چنە و ئەوێ بەخشینێ چ مفا بو مە هەیە؟ ئێک ژوان ڤەکولینێن کو ل ساڵا
-                                          ٢٠١٠ کومەک ژ ڤەکولەران پێرابین و دناڤ ڤێ ڤەکولینێ دا کومەکا خەلکی کومکرن و کرنا چەند گروپەک و بۆ ماوێ چەند جاران ئەڤ چەندە دوبارە کرەڤە و گوتە وان کو هەر ئێک ژوە ٢٠ دۆلاران خەرج بکەن، بەلێ پا جارا دەستپێکێ گوتە
-                                          وان ئەوان ٢٠ دۆلاران ل خو سەرف بکەن ( ئانکو گوتە وان تشتان پێ بکڕن و بازاری پێ بکەن و بۆ خوشیا خۆ سەرف بکەن ) و جارەکا دیژی ئەڤ ڤەکولینە دوبارەکرەڤە و گوتە وان کو ئەڤان ٢٠ دۆلاران ئەڤ جارە ل کەسەکێ دی سەرف بکەن
-                                          هەر چ کەسەک بیت، چەند جارەکان ئەڤ چەندە دوبارەکرەڤە، پشتی ڤێ چەندێ بوچوونا بەشداربووین خۆ وەرگرت کا کێژ ژوان پتر ئەو کەیف خوشکرن، یان ژی دڵخۆشی بو وان پەیداکر ب بەخشینا ئەوان ٢٠ دۆلاران؟ بێگومان ئەو چەندە دەرکەفت
-                                          کو تێدا پارە دابینە ئەو کەسێن دی
+                                          بەخشین کاری مەزنەکانە
                                           <br><br>
-                                          لە کێ خۆش بین؟-
-                                          <br>
-                                          چۆن خۆشگوزەران بم؟-
-                                          <br>
-                                          چۆن داهێنان ئەنجام بدەم؟-
-                                          <br>
-                                          چۆن وزەکەت بارگاوی بکەیتەوە؟-
-                                          <br>
-                                          سوپاسگوزاری-
-                                          <br>
-                                          کێ بۆت دوگری؟-
+                                          پشتی کو مرۆڤی خو و هەبوونا خو سەلماند و شیا کەسایەتیا خۆ ئاڤا بکەت و بەرەڤ سەرکەفتنێن خۆ چوو، پێدڤییە خۆشی بۆ ژیانا وی و دەوروبەرێن ویژی درووست ببیت، ژبەر ڤێ چەندێ دڤی بەشیدا دێ چینە سەر خاڵا دەستپێکێ د
+                                          هاوکێشەیا
+                                          بزە (کەنی، زەردەخەنە) دا کو ئەوژی پێکهاتییە ژ بەخشین
                                         </p>
+                                        <details>
+                                          <summary class="head black-text">زێدەتر</summary>
+                                          <p class="More-details">
+                                            یا ئاشکەرایە کو ئەو خۆشییا ئەم د بەخشینە کەسێ بەرامبەری خو، ئەڤڕوکە یان ژی سبەهی بیت دێ بومەژی زڤریتە ڤە، پێدڤییە دڤێرەدا بزانین جورێن بەخشینێ چنە و ئەوێ بەخشینێ چ مفا بو مە هەیە؟ ئێک ژوان ڤەکولینێن کو ل ساڵا
+                                            ٢٠١٠ کومەک ژ ڤەکولەران پێرابین و دناڤ ڤێ ڤەکولینێ دا کومەکا خەلکی کومکرن و کرنا چەند گروپەک و بۆ ماوێ چەند جاران ئەڤ چەندە دوبارە کرەڤە و گوتە وان کو هەر ئێک ژوە ٢٠ دۆلاران خەرج بکەن، بەلێ پا جارا دەستپێکێ
+                                            گوتە
+                                            وان ئەوان ٢٠ دۆلاران ل خو سەرف بکەن ( ئانکو گوتە وان تشتان پێ بکڕن و بازاری پێ بکەن و بۆ خوشیا خۆ سەرف بکەن ) و جارەکا دیژی ئەڤ ڤەکولینە دوبارەکرەڤە و گوتە وان کو ئەڤان ٢٠ دۆلاران ئەڤ جارە ل کەسەکێ دی سەرف
+                                            بکەن
+                                            هەر چ کەسەک بیت، چەند جارەکان ئەڤ چەندە دوبارەکرەڤە، پشتی ڤێ چەندێ بوچوونا بەشداربووین خۆ وەرگرت کا کێژ ژوان پتر ئەو کەیف خوشکرن، یان ژی دڵخۆشی بو وان پەیداکر ب بەخشینا ئەوان ٢٠ دۆلاران؟ بێگومان ئەو چەندە
+                                            دەرکەفت
+                                            کو تێدا پارە دابینە ئەو کەسێن دی
+                                            <br><br>
+                                            لە کێ خۆش بین؟
+                                            <br>
+                                            چۆن خۆشگوزەران بم؟
+                                            <br>
+                                            چۆن داهێنان ئەنجام بدەم؟
+                                            <br>
+                                            چۆن وزەکەت بارگاوی بکەیتەوە؟
+                                            <br>
+                                            سوپاسگوزاری
+                                            <br>
+                                            کێ بۆت دوگری؟
+                                          </p>
+                                        </details>
                                       </details>
                                     </details>
                                   </details>
@@ -686,13 +971,56 @@
                       </details>
                     </details>
                   </details>
-                </details>
-              </details>
-            </div>
-          </li>
+                </div>
+                <!-- end text Badini -->
+
+                <!-- text sorani -->
+                <div class="tab-pane fade" id="b2-tab-pane" role="tabpanel" aria-labelledby="Sorani" tabindex="0">
+                  <p class="More-details">
+                    هەر کەسێک کورتکراوەی ئەم پەرتووکە بە زمانی کوردی زاراوەی سورانی هەبێ دەتوانێ بو ئێمە بینێرێ
+                    <br><br>
+                    07518405161
+                    <br><br>
+                    07508419579
+                  </p>
+                </div>
+                <!-- end text sorani -->
+
+                <!-- text arabic -->
+                <div class="tab-pane fade" id="c2-tab-pane" role="tabpanel" aria-labelledby="Arabic" tabindex="0">
+                  <p class="More-details">
+                    اي شخص يمتلك الايجاز حول هذا الكتاب باللغة العربية يمكنه ان يرسل لنا نسخة منها
+                    <br><br>
+                    07518405161
+                    <br><br>
+                    07508419579
+                  </p>
+                </div>
+                <!-- end text arabic -->
+
+                <!-- text english -->
+                <div class="tab-pane fade" id="d2-tab-pane" role="tabpanel" aria-labelledby="English" tabindex="0">
+                  <p class="More-details">
+
+                    <br><br>
+                    07518405161
+                    <br><br>
+                    07508419579
+                  </p>
+                </div>
+                <!-- end text english -->
+
+              </div>
+              <!-- li ser vere de wan tishtan daxil key bo wan zimanen te diven -->
+
+            </details>
+          </div>
+        </li>
       </div>
+      <!-- END OF NEW BOOOOK -->
 
 
+        <!-- NEW BOOOOK -->
       <div class="col-lg-4 col-md-5">
         <li class="animals">
           <hr>
@@ -711,60 +1039,128 @@
 
           <div class="wrab">
             <details>
-              <summary class="head">کورتیا پەڕتووکێ</summary>
-              <p class="More-details">
-                ژلایێ : ئامەد عبدالحميد أيوب
-                <br><br>
-                پەڕتووکەکە ژ جورێ هاندانێیە کو پێکدهێتن ژ ١٦ پشکان کو د هەر پشکەکێ دا بەحسێ بابەتەکێ جودا دکەت بو سەرکەفتن بسەر ئێڤریستی و رێکخستنا خو کادێ چاوا شێی بسەر ئێڤریستی کەڤی، د ئەڤێ پەڕتووکێ دا دێ تە هاندەت بو کارکرن و خو زەحمەت دانێ بو وی
-                تشتێ تە بڤێت ب گەهیێ و دێ هاریکاریا تەکەت بو ب دەست ڤە ئینانا وی تشتێ تە بڤێت
-              </p>
-              <details>
-                <summary class="head">زێدەتر</summary>
-                <p class="More-details">
-                  و هەروەسا دێ دڤێ پەرتوکێ دا گەلەک کەسێن سەرکەفتی و کەسێن باوەری ب خو بوی بینی، دێ هاریکاریا تەکەت بو رێکخستنا دەمێ خو بو وان تشتێن کو دێ مفای گەهینە تە و دەوروبەرێ تە و بو کارکرنا بەردەوام لسەر کارێن باش
-                </p>
-                <details>
-                  <summary class="head">زێدەتر</summary>
+              <summary class="head black-text">کورتیا پەڕتووکێ</summary>
+              <!-- eve ew dokmen seri ne -->
+              <ul class="top-ziman nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="ziman-button nav-link active" id="Badini" data-bs-toggle="tab" data-bs-target="#a3-tab-pane" type="button" role="tab" aria-controls="Badini-tab-pane" aria-selected="true">بادینی</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="ziman-button nav-link" id="Sorani" data-bs-toggle="tab" data-bs-target="#b3-tab-pane" type="button" role="tab" aria-controls="Sorani-tab-pane" aria-selected="false">سۆرانی</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="ziman-button nav-link" id="Arabic" data-bs-toggle="tab" data-bs-target="#c3-tab-pane" type="button" role="tab" aria-controls="Arabic-tab-pane" aria-selected="false">العربية</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="ziman-button nav-link" id="English" data-bs-toggle="tab" data-bs-target="#d3-tab-pane" type="button" role="tab" aria-controls="English-tab-pane" aria-selected="false">English</button>
+                </li>
+              </ul>
+              <!-- eve domahika wan dokmen seri ne -->
+
+              <!-- li vere de wan tishtan daxil key bo wan zimanen te diven -->
+              <div class="tab-content" id="myTabContent">
+
+                <!-- text Badini -->
+                <div class="tab-pane fade show active" id="a3-tab-pane" role="tabpanel" aria-labelledby="Badini" tabindex="0">
                   <p class="More-details">
-                    و دێ وەل هزرا تەکەت کو بەردەوام هزرەکا باش جوان بکەی ژ دەورو بەرێ خو و هزرکرن ژ بەری تو کارەکێ بکەی ( سێ جورێن مرۆڤان یێن هەین یێ ئێکێ کاردکەت بێ هزرکرن و یێ دووێ ب تنێ هزردکەت بئی کارکرن و یێ سێیێ هزر دکەت و دویڤدا کاردکەت ) یێ
-                    ئێکێ باشترە یان یێ دووێ، نە گرنگە! دار پێدڤی ب هەوای و ئاڤێیە دا کو گەشە بکەت، سەرکەفتن ژی پێدڤی هزرکرنێ و کارییە، دا کو بیتە سەرکەفتن
+                    ژلایێ : ئامەد عبدالحميد أيوب
+                    <br><br>
+                    پەڕتووکەکە ژ جورێ هاندانێیە کو پێکدهێتن ژ ١٦ پشکان کو د هەر پشکەکێ دا بەحسێ بابەتەکێ جودا دکەت بو سەرکەفتن بسەر ئێڤریستی و رێکخستنا خو کادێ چاوا شێی بسەر ئێڤریستی کەڤی، د ئەڤێ پەڕتووکێ دا دێ تە هاندەت بو کارکرن و خو زەحمەت دانێ بو
+                    وی
+                    تشتێ تە بڤێت ب گەهیێ و دێ هاریکاریا تەکەت بو ب دەست ڤە ئینانا وی تشتێ تە بڤێت
                   </p>
                   <details>
-                    <summary class="head">زێدەتر</summary>
+                    <summary class="head black-text">زێدەتر</summary>
                     <p class="More-details">
-                      هندەک تشت و رویدان کو دناڤ پەڕتووکێ دا هاتینە نڤێسین و د سەرنج راکێش بوون
-                      <br><br>
-                      ئێک ژوان
-                      <br><br>
-                      ئەدمون هیلاری ( ل ١٩١٩-٧-٢٥ ژ دایکبوویە و ل ٢٠٠٨-١-١١ وەغەرکرییە ) ڤەکولەرەکێ نیوزلەندی بوو هەروەسا دبلوماسی و نڤیسەر و چیاڤان بوو. دهێتە نیاسین ئێکەم کەس کو گەهشتییە گوپیتکا چیایێ ئێڤریستی دگەل چیاڤانێ نیپاڵی ( تینسینغ نورغای )
+                      و هەروەسا دێ دڤێ پەرتوکێ دا گەلەک کەسێن سەرکەفتی و کەسێن باوەری ب خو بوی بینی، دێ هاریکاریا تەکەت بو رێکخستنا دەمێ خو بو وان تشتێن کو دێ مفای گەهینە تە و دەوروبەرێ تە و بو کارکرنا بەردەوام لسەر کارێن باش
                     </p>
                     <details>
-                      <summary class="head">زێدەتر</summary>
+                      <summary class="head black-text">زێدەتر</summary>
                       <p class="More-details">
-                        دەمێ ئەدمون هیلاری ئێکەم جار هەوڵدای ب سەر ئێڤریستی بکەڤیت، لێ نەشیا، و سێ هەڤاڵێن خۆ ل پشت خۆ مری هێلان. بەلێ ژبەر ماندیبوونا وی یامەزن، حوکمەتا ئینگلیزی ئەو بلندکر و داخازکرە پەرڵەمانی
+                        و دێ وەل هزرا تەکەت کو بەردەوام هزرەکا باش جوان بکەی ژ دەورو بەرێ خو و هزرکرن ژ بەری تو کارەکێ بکەی ( سێ جورێن مرۆڤان یێن هەین یێ ئێکێ کاردکەت بێ هزرکرن و یێ دووێ ب تنێ هزردکەت بئی کارکرن و یێ سێیێ هزر دکەت و دویڤدا کاردکەت ) یێ
+                        ئێکێ باشترە یان یێ دووێ، نە گرنگە! دار پێدڤی ب هەوای و ئاڤێیە دا کو گەشە بکەت، سەرکەفتن ژی پێدڤی هزرکرنێ و کارییە، دا کو بیتە سەرکەفتن
                       </p>
                       <details>
-                        <summary class="head">زێدەتر</summary>
+                        <summary class="head black-text">زێدەتر</summary>
                         <p class="More-details">
-                          دەمێ ئەو چوویە د پەرلەمانیڤە هەمی ڕابوونە سەر پێن خۆ و دەست بۆ قوتان وەکی رێزگرتن بۆ وی. دەمێ ئەو ل سەرێ هۆڵێ وێنەیەکێ چیایێ ئێڤریستی ل بەرامبەر وی بوو. بەرێز ئەدمون هیلاری هەمی ب پشتگوهڤە هاڤێتن و بێهنەکێ بەرامبەر وێنەی
-                          ڕاوستیا ب دەستێ خۆ ئاماژە دا و دگەل چیایێ ئێڤریست ئاخفت و گۆت ( تو ئەڤێ جارێ ب سەرکەفتی، هندیکە توی تو یێ مەزنی، بەلێ ئەز هەمی گاڤا مەزنترینم )
+                          هندەک تشت و رویدان کو دناڤ پەڕتووکێ دا هاتینە نڤێسین و د سەرنج راکێش بوون
+                          <br><br>
+                          ئێک ژوان
+                          <br><br>
+                          ئەدمون هیلاری ( ل ١٩١٩-٧-٢٥ ژ دایکبوویە و ل ٢٠٠٨-١-١١ وەغەرکرییە ) ڤەکولەرەکێ نیوزلەندی بوو هەروەسا دبلوماسی و نڤیسەر و چیاڤان بوو. دهێتە نیاسین ئێکەم کەس کو گەهشتییە گوپیتکا چیایێ ئێڤریستی دگەل چیاڤانێ نیپاڵی ( تینسینغ نورغای
+                          )
                         </p>
                         <details>
-                          <summary class="head">زێدەتر</summary>
+                          <summary class="head black-text">زێدەتر</summary>
                           <p class="More-details">
-                            ل دەمژمێر ١١:٣٠ سپێدێ ل ١٩٥٣-٤-٢٩ ئەدمونی د هەوڵدانا خۆ یا دووێدا سەرکەفتن ل سەر ئێڤریستی ئینا، دگەل ( تینسینغ نورغای ) بوونە ئێکەمین زەڵام ب سەر ئێڤریستی بکەڤن. دگەل هەڤڕکیکرنێ ل گەل وێ بلندییێ و کێمییا پەستانێ و سەڕمایا
-                            دگەهیتە ئاستێ بەستیبوونێ و مەتڕسییێن هەڕفینا بەفڕێ و هەمی مەتڕسییێن دی. پشتی ڤێ سەرکەفتنێ ئەدمون هیلاری پێنج دیارییێن ڕێزگرتنێ وەرگرتن هەروەسا وێنێ وی دانا سەر پارێ نیوزلەندی و گەلەک جادە و قوتابخانە ب ناڤێ وی ناڤکرن
+                            دەمێ ئەدمون هیلاری ئێکەم جار هەوڵدای ب سەر ئێڤریستی بکەڤیت، لێ نەشیا، و سێ هەڤاڵێن خۆ ل پشت خۆ مری هێلان. بەلێ ژبەر ماندیبوونا وی یامەزن، حوکمەتا ئینگلیزی ئەو بلندکر و داخازکرە پەرڵەمانی
                           </p>
+                          <details>
+                            <summary class="head black-text">زێدەتر</summary>
+                            <p class="More-details">
+                              دەمێ ئەو چوویە د پەرلەمانیڤە هەمی ڕابوونە سەر پێن خۆ و دەست بۆ قوتان وەکی رێزگرتن بۆ وی. دەمێ ئەو ل سەرێ هۆڵێ وێنەیەکێ چیایێ ئێڤریستی ل بەرامبەر وی بوو. بەرێز ئەدمون هیلاری هەمی ب پشتگوهڤە هاڤێتن و بێهنەکێ بەرامبەر وێنەی
+                              ڕاوستیا ب دەستێ خۆ ئاماژە دا و دگەل چیایێ ئێڤریست ئاخفت و گۆت ( تو ئەڤێ جارێ ب سەرکەفتی، هندیکە توی تو یێ مەزنی، بەلێ ئەز هەمی گاڤا مەزنترینم )
+                            </p>
+                            <details>
+                              <summary class="head black-text">زێدەتر</summary>
+                              <p class="More-details">
+                                ل دەمژمێر ١١:٣٠ سپێدێ ل ١٩٥٣-٤-٢٩ ئەدمونی د هەوڵدانا خۆ یا دووێدا سەرکەفتن ل سەر ئێڤریستی ئینا، دگەل ( تینسینغ نورغای ) بوونە ئێکەمین زەڵام ب سەر ئێڤریستی بکەڤن. دگەل هەڤڕکیکرنێ ل گەل وێ بلندییێ و کێمییا پەستانێ و
+                                سەڕمایا
+                                دگەهیتە ئاستێ بەستیبوونێ و مەتڕسییێن هەڕفینا بەفڕێ و هەمی مەتڕسییێن دی. پشتی ڤێ سەرکەفتنێ ئەدمون هیلاری پێنج دیارییێن ڕێزگرتنێ وەرگرتن هەروەسا وێنێ وی دانا سەر پارێ نیوزلەندی و گەلەک جادە و قوتابخانە ب ناڤێ وی ناڤکرن
+                              </p>
+                            </details>
+                          </details>
                         </details>
                       </details>
                     </details>
                   </details>
-                </details>
-              </details>
+                </div>
+                <!-- end text Badini -->
+
+                <!-- text sorani -->
+                <div class="tab-pane fade" id="b3-tab-pane" role="tabpanel" aria-labelledby="Sorani" tabindex="0">
+                  <p class="More-details">
+                    هەر کەسێک کورتکراوەی ئەم پەرتووکە بە زمانی کوردی زاراوەی سورانی هەبێ دەتوانێ بو ئێمە بینێرێ
+                    <br><br>
+                    07518405161
+                    <br><br>
+                    07508419579
+                  </p>
+                </div>
+                <!-- end text sorani -->
+
+                <!-- text arabic -->
+                <div class="tab-pane fade" id="c3-tab-pane" role="tabpanel" aria-labelledby="Arabic" tabindex="0">
+                  <p class="More-details">
+                    اي شخص يمتلك الايجاز حول هذا الكتاب باللغة العربية يمكنه ان يرسل لنا نسخة منها
+                    <br><br>
+                    07518405161
+                    <br><br>
+                    07508419579
+                  </p>
+                </div>
+                <!-- end text arabic -->
+
+                <!-- text english -->
+                <div class="tab-pane fade" id="d3-tab-pane" role="tabpanel" aria-labelledby="English" tabindex="0">
+                  <p class="More-details">
+
+                    <br><br>
+                    07518405161
+                    <br><br>
+                    07508419579
+                  </p>
+                </div>
+                <!-- end text english -->
+
+              </div>
+              <!-- li ser vere de wan tishtan daxil key bo wan zimanen te diven -->
+
             </details>
           </div>
         </li>
       </div>
+      <!-- END OF NEW BOOOOK -->
 
 
 
@@ -782,14 +1178,9 @@
 
   <footer class="text-muted py-5">
     <div class="container">
-      <p class="float-end mb-1">
-        <a href="#">زڤرین بو سەری⇈</a>
-      </p>
-
-
     </div>
-
   </footer>
+
   <div class="container" style="text-align: center;" dir="ltr">
 
     <p>
@@ -802,9 +1193,9 @@
 
   </div>
 
+
+  <div id="arrow" title="Go up"><i class="icon ion-md-arrow-dropup-circle"></i></div>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </body>
 
 </html>
