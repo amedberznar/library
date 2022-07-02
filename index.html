@@ -19,6 +19,9 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
   <style>
     .Front-Images {
       border-radius: 20px;
@@ -58,19 +61,80 @@
 
       }
     }
+
+
+
+  /* alert */
+  .swal-overlay {
+       background-color: beige;
+       color: black;
+
+     }
+
+     .swal-modal {
+       // background-color:beige;
+       color: black;
+
+     }
+     .swal-title {
+       // background-color:beige;
+       color: black;
+
+     }
+
+     .swal-text {
+       //background-color:beige;
+       color: black;
+
+       text-align: right;
+     }
+
+     .swal-footer {
+       //background-color:beige;
+       color: black;
+
+     }
+
+     .swal-button {
+       color: black;
+     }
+
+     .swal-button--confirm {
+       color: black;
+       background-color: beige;
+     }
+
+
   </style>
 
 
 <script>
 
-alert(" داخوازی خواندەڤانێن هێژا ؛ ب هنارتنا کورتی و بەرگێن پەرتووکێن هەوە خواندی ژبو ژمارەیێن دەستنیشانکری د ناڤا مالپەرێ پەرتووکخانەیێ دا دێ پەرتووکخانەیا مە دەولەمەندکەن  ");
-alert("0751 840 5161" + " - " + "  0750 841 9579  " );
+var xerhatin = "";
+
+function hello() {
+     swal({
+       title: 'داخوازی',
+       text: 'خواندەڤانێن هێژا ؛ ب هنارتنا کورتی و بەرگێن پەرتووکێن هەوە خواندی ژبو ژمارەیێن دەستنیشانکری د ناڤا مالپەرێ پەرتووکخانەیێ دا دێ پەرتووکخانەیا مە دەولەمەندکەن',
+       icon: 'warning', //there are four predefined icons("warning", "error", "success" and "info")
+       buttons: ['❌', '✔️'],
+       closeOnEsc: false,
+       closeOnClickOutside: false,
+     }).then((value) => {
+       if (value == true) {
+         swal(' Mobile Number :  0751 840 5161 \n\n Mobile Number :  0750 841 9579 ' + xerhatin, { button: 'سوپاس ' });
+       } else {
+         swal(' گەلەگ ب خێرهاتی ' + xerhatin, { button: 'سوپاس' });
+       }
+     });
+   }
+
 </script>
 
 </head>
 
 
-<body>
+<body onload="hello();">
 
   <header>
     <div class="collapse bg-dark" id="navbarHeader">
