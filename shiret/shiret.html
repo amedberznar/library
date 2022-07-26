@@ -149,6 +149,9 @@
       padding-right: 25px;
     }
 
+
+
+
     .ziman-button {
       font-size: 15px;
     }
@@ -221,8 +224,114 @@
         right: 18px;
       }
 
+    }
+
+    @media (min-width:425px) {
+
+
+      .maincontainer {
+        position: relative;
+        padding: 10px 65px 300px -100px;
+        margin-right: 20px;
+      }
 
     }
+
+    @media (min-width:768px) {
+
+
+      .maincontainer {
+        position: relative;
+        padding: 10px 65px 300px -100px;
+        margin-right: -5px;
+      }
+
+    }
+
+    @media (min-width:992px) {
+
+
+      .maincontainer {
+        position: relative;
+        padding: 10px 65px 300px -100px;
+        margin-right: -25px;
+      }
+
+    }
+
+    @media (min-width:1440px) {
+
+
+      .maincontainer {
+        position: relative;
+        padding: 10px 65px 300px -100px;
+        margin-right: 20px;
+      }
+
+    }
+
+
+
+
+
+
+
+
+
+    .top-select {
+      width: 355px;
+      margin-right: -10px;
+    }
+
+    @media (min-width:425px) {
+      .top-select {
+        width: 355px;
+        margin-right: 10px;
+      }
+    }
+
+    @media (min-width:500px) {
+      .top-select {
+        width: 355px;
+        margin-right: 60px;
+      }
+    }
+
+    @media (min-width:578px) {
+      .top-select {
+        width: 355px;
+        margin-right: 50px;
+      }
+    }
+
+    @media (min-width:768px) {
+      .top-select {
+        width: 355px;
+        margin-right: 150px;
+      }
+    }
+
+    @media (min-width:992px) {
+      .top-select {
+        width: 355px;
+        margin-right: 260px;
+      }
+    }
+
+    @media (min-width:1200px) {
+      .top-select {
+        width: 355px;
+        margin-right: 360px;
+      }
+    }
+
+    @media (min-width:1400px) {
+      .top-select {
+        width: 355px;
+        margin-right: 460px;
+      }
+    }
+
 
 
 
@@ -580,152 +689,217 @@
         <img class="light-mode-photo" src="../images/light-mode-photo.png" alt="">
       </label>
 
-      <div class="row">
 
-        <!-- NEW BOOOOK -->
-        <div class="col-lg-4 col-md-6">
-          <li class="animals">
-            <hr>
-            <p class="book-name">گەنج</p>
-            <hr>
-            <div class="maincontainer">
-              <div class="thecard">
-                <div class="thefront">
-                  <img class="b" src="shiret-images/1.jpeg" alt="">
+      <br><br>
+
+
+      <!-- eve ew dokmen seri ne -->
+      <ul class="top-select nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="ziman-button nav-link active" id="Korti" data-bs-toggle="tab" data-bs-target="#Korti-tab-pane" type="button" role="tab" aria-controls="korti-tab-pane" aria-selected="true">کورتیێن پەرتووکان</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="ziman-button nav-link" id="Pdf" data-bs-toggle="tab" data-bs-target="#Pdf-tab-pane" type="button" role="tab" aria-controls="pdf-tab-pane" aria-selected="false">پەرتووک ب شێوێ pdf</button>
+        </li>
+      </ul>
+      <br><br><br>
+      <!-- eve domahika wan dokmen seri ne -->
+
+
+      <div class="tab-content" id="myTabContent">
+        <!-- ****************************************************************************************************************** -->
+        <!--                                        کورتیێن  پەرتووکان                                                              -->
+        <!-- ****************************************************************************************************************** -->
+        <div class="tab-pane fade show active" id="Korti-tab-pane" role="tabpanel" aria-labelledby="Korti" tabindex="0">
+
+          <div class="row">
+
+            <!-- NEW BOOOOK -->
+            <div class="col-lg-4 col-md-6">
+              <li class="animals">
+                <hr>
+                <p class="book-name">گەنج</p>
+                <hr>
+                <div class="maincontainer">
+                  <div class="thecard">
+                    <div class="thefront">
+                      <img class="b" src="shiret-images/1.jpeg" alt="">
+                    </div>
+                    <div class="theback">
+                      <img class="b" src="shiret-images/1b.jpeg" alt="">
+                    </div>
+                  </div>
                 </div>
-                <div class="theback">
-                  <img class="b" src="shiret-images/1b.jpeg" alt="">
-                </div>
-              </div>
-            </div>
 
-            <div class="wrab">
-              <details>
-                <summary class="head black-text">کورتیا پەڕتووکێ</summary>
-                <!-- eve ew dokmen seri ne -->
-                <ul class="top-ziman nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="ziman-button nav-link active" id="Badini" data-bs-toggle="tab" data-bs-target="#a1-tab-pane" type="button" role="tab" aria-controls="Badini-tab-pane" aria-selected="true">بادینی</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="ziman-button nav-link" id="Sorani" data-bs-toggle="tab" data-bs-target="#b1-tab-pane" type="button" role="tab" aria-controls="Sorani-tab-pane" aria-selected="false">سۆرانی</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="ziman-button nav-link" id="Arabic" data-bs-toggle="tab" data-bs-target="#c1-tab-pane" type="button" role="tab" aria-controls="Arabic-tab-pane" aria-selected="false">العربية</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="ziman-button nav-link" id="English" data-bs-toggle="tab" data-bs-target="#d1-tab-pane" type="button" role="tab" aria-controls="English-tab-pane" aria-selected="false">English</button>
-                  </li>
-                </ul>
-                <!-- eve domahika wan dokmen seri ne -->
+                <div class="wrab">
+                  <details>
+                    <summary class="head black-text">کورتیا پەڕتووکێ</summary>
+                    <!-- eve ew dokmen seri ne -->
+                    <ul class="top-ziman nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="ziman-button nav-link active" id="Badini" data-bs-toggle="tab" data-bs-target="#a1-tab-pane" type="button" role="tab" aria-controls="Badini-tab-pane" aria-selected="true">بادینی</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="ziman-button nav-link" id="Sorani" data-bs-toggle="tab" data-bs-target="#b1-tab-pane" type="button" role="tab" aria-controls="Sorani-tab-pane" aria-selected="false">سۆرانی</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="ziman-button nav-link" id="Arabic" data-bs-toggle="tab" data-bs-target="#c1-tab-pane" type="button" role="tab" aria-controls="Arabic-tab-pane" aria-selected="false">العربية</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="ziman-button nav-link" id="English" data-bs-toggle="tab" data-bs-target="#d1-tab-pane" type="button" role="tab" aria-controls="English-tab-pane" aria-selected="false">English</button>
+                      </li>
+                    </ul>
+                    <!-- eve domahika wan dokmen seri ne -->
 
-                <!-- li vere de wan tishtan daxil key bo wan zimanen te diven -->
-                <div class="tab-content" id="myTabContent">
+                    <!-- li vere de wan tishtan daxil key bo wan zimanen te diven -->
+                    <div class="tab-content" id="myTabContent">
 
-                  <!-- text Badini -->
-                  <div class="tab-pane fade show active" id="a1-tab-pane" role="tabpanel" aria-labelledby="Badini" tabindex="0">
-                    <p class="More-details">
-                      ژلایێ : سوسن شاکر محمد
-                      <br><br>
-                      ئەڤ پەرتوکە بەحس ژ گەلەک ژوان شیرەت و خالێێن ئاڤاکەر بو سنێلە و گەنجان دکەت داکو ڤێ تەخێ ژوان هزرکرن و ئاریشێن دڤی تەمەنیدا دهێنە درێکاواندا رزگاربکەت ، ئەڤ پەرتووکە رێکەکە بو گەلەک سنێلە و گەنجان کو خو پێ ئاڤا بکەن وان بەرسڤان
-                      بدەستڤە بینن کو دەمەکە بوینە پرسیار ل دەف وان ، و ژ گەلەک رەفتارا و هزرکرنێن نە ساخلەم دیربکەڤن کو بەردەوام توش دبنێ
-                    </p>
-                    <details>
-                      <summary class="head black-text">زێدەتر</summary>
-                      <p class="More-details">
-                        پەرتووک گەلەک بابەتان بخوڤە دگریت هندەک ژوان : بەحس ژ قوناغێن گەشەکرنا پێدڤیێن سنێلە و گەنجان و پەیوەندیێن حەژێ کرنێ دناڤبەرا کچ و کوران دا و چاوانیا کونترولکرنا حەزێن خو کو بدرێژاهی بەحس دکەت ، و دەربارەی ئاڤاکرنا کەسایەتیێ و
-                        دیارترین ئەو خالێن بناغەنە بو ئاڤاکرنا کەسایەتیەکا بهێز دویرکەفتن ژ کەسایەتیەکا لاواز بەحس دکەت
-                      </p>
-                      <details>
-                        <summary class="head black-text">زێدەتر</summary>
+                      <!-- text Badini -->
+                      <div class="tab-pane fade show active" id="a1-tab-pane" role="tabpanel" aria-labelledby="Badini" tabindex="0">
                         <p class="More-details">
-                          هەروەسا بەحسێ گرنگی و مفایێن خواندنا پەرتووکا و کاریگەریێن وێ و گوهرینێن وێ ل سەر مروڤی دکەت ، و لدوماهیێ بەحسێ تورەبون و زالبون بسەر تورەبونێ دکەت . پەرتووک نە نڤیسینەکا زانستی و ئەکادمییە (ب زمانەکێ زێدە سادە و بساناهی بو
-                          تێگەهشتنێ هاتیە نڤیسین) ژ سەربورو ئەزمونا نڤیسەری بتنێ یە کو ل گەل گەلەک گەنجان روینشتییە و دانوستاندن ل گەل وان کریە
+                          ژلایێ : سوسن شاکر محمد
+                          <br><br>
+                          ئەڤ پەرتوکە بەحس ژ گەلەک ژوان شیرەت و خالێێن ئاڤاکەر بو سنێلە و گەنجان دکەت داکو ڤێ تەخێ ژوان هزرکرن و ئاریشێن دڤی تەمەنیدا دهێنە درێکاواندا رزگاربکەت ، ئەڤ پەرتووکە رێکەکە بو گەلەک سنێلە و گەنجان کو خو پێ ئاڤا بکەن وان
+                          بەرسڤان
+                          بدەستڤە بینن کو دەمەکە بوینە پرسیار ل دەف وان ، و ژ گەلەک رەفتارا و هزرکرنێن نە ساخلەم دیربکەڤن کو بەردەوام توش دبنێ
                         </p>
                         <details>
                           <summary class="head black-text">زێدەتر</summary>
                           <p class="More-details">
-                            دیسان ژی وەکو نڤیسەر ئەماژێ پێددەت ئەڤ پەرتوکە بو سنێلەو گەنجێن دناڤبەرا ١٣بۆ ١٤ سالیێ و هەتا ٢١ بۆ ٢٢ سالیێ هاتیە نڤیسین داکو بوخو مفای ژێ ببینن
+                            پەرتووک گەلەک بابەتان بخوڤە دگریت هندەک ژوان : بەحس ژ قوناغێن گەشەکرنا پێدڤیێن سنێلە و گەنجان و پەیوەندیێن حەژێ کرنێ دناڤبەرا کچ و کوران دا و چاوانیا کونترولکرنا حەزێن خو کو بدرێژاهی بەحس دکەت ، و دەربارەی ئاڤاکرنا
+                            کەسایەتیێ و
+                            دیارترین ئەو خالێن بناغەنە بو ئاڤاکرنا کەسایەتیەکا بهێز دویرکەفتن ژ کەسایەتیەکا لاواز بەحس دکەت
                           </p>
+                          <details>
+                            <summary class="head black-text">زێدەتر</summary>
+                            <p class="More-details">
+                              هەروەسا بەحسێ گرنگی و مفایێن خواندنا پەرتووکا و کاریگەریێن وێ و گوهرینێن وێ ل سەر مروڤی دکەت ، و لدوماهیێ بەحسێ تورەبون و زالبون بسەر تورەبونێ دکەت . پەرتووک نە نڤیسینەکا زانستی و ئەکادمییە (ب زمانەکێ زێدە سادە و بساناهی
+                              بو
+                              تێگەهشتنێ هاتیە نڤیسین) ژ سەربورو ئەزمونا نڤیسەری بتنێ یە کو ل گەل گەلەک گەنجان روینشتییە و دانوستاندن ل گەل وان کریە
+                            </p>
+                            <details>
+                              <summary class="head black-text">زێدەتر</summary>
+                              <p class="More-details">
+                                دیسان ژی وەکو نڤیسەر ئەماژێ پێددەت ئەڤ پەرتوکە بو سنێلەو گەنجێن دناڤبەرا ١٣بۆ ١٤ سالیێ و هەتا ٢١ بۆ ٢٢ سالیێ هاتیە نڤیسین داکو بوخو مفای ژێ ببینن
+                              </p>
+                            </details>
+                          </details>
                         </details>
-                      </details>
-                    </details>
-                  </div>
-                  <!-- end text Badini -->
+                      </div>
+                      <!-- end text Badini -->
 
-                  <!-- text sorani -->
-                  <div class="tab-pane fade" id="b1-tab-pane" role="tabpanel" aria-labelledby="Sorani" tabindex="0">
-                    <p class="More-details">
-                      لەلایەن: سوسن شاکر محمد
-                      <br><br>
-                      ئەم کتێبە باس لە زۆرێک لەو ئاموژگاری وخاڵە بنیاتنەرەکان دەکات بۆ رزگارکردنی هەرزەکار و گەنجەکان لەو بیرکردنەوە و کێشانەی لەم تەمەنەدا توشیان دەبێت ، ئەم کتێبە رێگایێکە بۆ خۆپێگەیاندنی هەرزەکار و گەنجەکان بۆ دەسکەوتنی وەڵامی ئەو
-                      پرسیارانەی ماوەیێکە لەلایان دروست بووە ، وە لە زورێک ڕەفتار و بیرکردنەوەی نا تەندروست دووربکەونەوە کە بەردەوام تووشیان دەبن
-                    </p>
-                    <details>
-                      <summary class="head black-text">زێدەتر</summary>
-                      <p class="More-details">
-                        کتێبەکە زۆر بابەت لە خۆ دەگرێت ، لەوانە : باسی قۆناغەکانی گەشەکردنی پێداویستییەکانی هەرزەکار و گەنجان دەکات ، وە پەیوەندی خوشەویستی لە نێوان و کچان کۆران وە چۆنیەتی کۆنتروڵکردنی حەزەکانیان کە بە ڕونی باس دەکات ، وە دەربارەی
-                        کەسایەتی وە دیارترین ئەو خاڵانەی کە بنەمان بۆ بنیاتنانی کەسایەتیێکی بەهێز دوور لە کەسایەتیێکی لاواز
-                      </p>
-                      <details>
-                        <summary class="head black-text">زێدەتر</summary>
+                      <!-- text sorani -->
+                      <div class="tab-pane fade" id="b1-tab-pane" role="tabpanel" aria-labelledby="Sorani" tabindex="0">
                         <p class="More-details">
-                          هەروەها باس لە گرنگی و سوودەکانی کتێب خوێندنەوە و کاریگەری و گۆڕانکاریەکانی لە سەر مروڤ دەکات،وە لە کۆتاییدا باس لە تۆڕەبوون و زاڵبوون بەسەری دەکات ، کتێبەکە نووسینێکی زانستی و ئەکادیمە نییە ( بە زمانێکی زۆر سادە و ئاسان بۆ
-                          تێگەیشتن نووسراوە) ،تەنیا لە بەسەرهات و ئەزموونی نوسەرەوە وەرگیراوە کە لەگەڵ زۆرێک لە گەنجان دانیشتووە گفتوگۆی لەگەڵیان کردووە
+                          لەلایەن: سوسن شاکر محمد
+                          <br><br>
+                          ئەم کتێبە باس لە زۆرێک لەو ئاموژگاری وخاڵە بنیاتنەرەکان دەکات بۆ رزگارکردنی هەرزەکار و گەنجەکان لەو بیرکردنەوە و کێشانەی لەم تەمەنەدا توشیان دەبێت ، ئەم کتێبە رێگایێکە بۆ خۆپێگەیاندنی هەرزەکار و گەنجەکان بۆ دەسکەوتنی وەڵامی
+                          ئەو
+                          پرسیارانەی ماوەیێکە لەلایان دروست بووە ، وە لە زورێک ڕەفتار و بیرکردنەوەی نا تەندروست دووربکەونەوە کە بەردەوام تووشیان دەبن
                         </p>
                         <details>
                           <summary class="head black-text">زێدەتر</summary>
                           <p class="More-details">
-                            دیسان وەکو نووسەر ئاماژە بەوە دەکات کە ئەم کتێبە بۆ هەرزەکار و گەنجانی تەمەن ١٣ بۆ ١٤ ساڵی هەتا ٢١ بۆ ٢٢ ساڵی نووسراوە بۆ ئەوەی سودی لێ وەرگرن
+                            کتێبەکە زۆر بابەت لە خۆ دەگرێت ، لەوانە : باسی قۆناغەکانی گەشەکردنی پێداویستییەکانی هەرزەکار و گەنجان دەکات ، وە پەیوەندی خوشەویستی لە نێوان و کچان کۆران وە چۆنیەتی کۆنتروڵکردنی حەزەکانیان کە بە ڕونی باس دەکات ، وە
+                            دەربارەی
+                            کەسایەتی وە دیارترین ئەو خاڵانەی کە بنەمان بۆ بنیاتنانی کەسایەتیێکی بەهێز دوور لە کەسایەتیێکی لاواز
                           </p>
+                          <details>
+                            <summary class="head black-text">زێدەتر</summary>
+                            <p class="More-details">
+                              هەروەها باس لە گرنگی و سوودەکانی کتێب خوێندنەوە و کاریگەری و گۆڕانکاریەکانی لە سەر مروڤ دەکات،وە لە کۆتاییدا باس لە تۆڕەبوون و زاڵبوون بەسەری دەکات ، کتێبەکە نووسینێکی زانستی و ئەکادیمە نییە ( بە زمانێکی زۆر سادە و ئاسان
+                              بۆ
+                              تێگەیشتن نووسراوە) ،تەنیا لە بەسەرهات و ئەزموونی نوسەرەوە وەرگیراوە کە لەگەڵ زۆرێک لە گەنجان دانیشتووە گفتوگۆی لەگەڵیان کردووە
+                            </p>
+                            <details>
+                              <summary class="head black-text">زێدەتر</summary>
+                              <p class="More-details">
+                                دیسان وەکو نووسەر ئاماژە بەوە دەکات کە ئەم کتێبە بۆ هەرزەکار و گەنجانی تەمەن ١٣ بۆ ١٤ ساڵی هەتا ٢١ بۆ ٢٢ ساڵی نووسراوە بۆ ئەوەی سودی لێ وەرگرن
+                              </p>
+                            </details>
+                          </details>
                         </details>
-                      </details>
-                    </details>
-                  </div>
-                  <!-- end text sorani -->
+                      </div>
+                      <!-- end text sorani -->
 
-                  <!-- text arabic -->
-                  <div class="tab-pane fade" id="c1-tab-pane" role="tabpanel" aria-labelledby="Arabic" tabindex="0">
-                    <p class="More-details">
-                      نرجوا ممن لديه مختصر أو إيجاز حول هذا الكتاب أن يرسله لنا مشكورا
-                      <br><br>
-                      07518405161
-                      <br><br>
-                      07508419579
-                    </p>
-                  </div>
-                  <!-- end text arabic -->
+                      <!-- text arabic -->
+                      <div class="tab-pane fade" id="c1-tab-pane" role="tabpanel" aria-labelledby="Arabic" tabindex="0">
+                        <p class="More-details">
+                          نرجوا ممن لديه مختصر أو إيجاز حول هذا الكتاب أن يرسله لنا مشكورا
+                          <br><br>
+                          07518405161
+                          <br><br>
+                          07508419579
+                        </p>
+                      </div>
+                      <!-- end text arabic -->
 
-                  <!-- text english -->
-                  <div class="tab-pane fade" id="d1-tab-pane" role="tabpanel" aria-labelledby="English" tabindex="0">
-                    <p class="More-details">
-                      If you have the book synopsis, please share it with us
-                      <br><br>
-                      07518405161
-                      <br><br>
-                      07508419579
-                    </p>
-                  </div>
-                  <!-- end text english -->
+                      <!-- text english -->
+                      <div class="tab-pane fade" id="d1-tab-pane" role="tabpanel" aria-labelledby="English" tabindex="0">
+                        <p class="More-details">
+                          If you have the book synopsis, please share it with us
+                          <br><br>
+                          07518405161
+                          <br><br>
+                          07508419579
+                        </p>
+                      </div>
+                      <!-- end text english -->
 
+                    </div>
+                    <!-- li ser vere de wan tishtan daxil key bo wan zimanen te diven -->
+
+                  </details>
                 </div>
-                <!-- li ser vere de wan tishtan daxil key bo wan zimanen te diven -->
-
-              </details>
+              </li>
             </div>
-          </li>
+            <!-- END OF NEW BOOOOK -->
+
+
+
+
+
+
+
+
+
+          </div>
         </div>
-        <!-- END OF NEW BOOOOK -->
 
-    
-
-
-
+        <!-- ****************************************************************************************************************** -->
+        <!--                                       پەرتووک ب شێوێ pdf                                                           -->
+        <!-- ****************************************************************************************************************** -->
 
 
+        <div class="tab-pane fade" id="Pdf-tab-pane" role="tabpanel" aria-labelledby="Pdf" tabindex="0">
+
+          <style>
+            .PDF-BOOK {
+              height: 500px;
+              width: 100%;
+              border: none;
+              border-radius: 10px;
+              margin-right: -5px;
+            }
+          </style>
+
+          <div class="container center-pdf">
+            <div class="row">
 
 
+              <!-- start pdf book -->
+              <center>
+                <h1 style="opacity:0.7">لیستە یا ڤالا یە</h1>
+              </center>
+              <!-- end of pdf book -->
+
+            </div>
+
+          </div>
+        </div>
       </div>
+
+
     </div>
   </main>
   <!-- =============================================== li vere de code min bi duhamik het ================================== -->
