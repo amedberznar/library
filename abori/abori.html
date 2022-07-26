@@ -27,10 +27,10 @@
 
   <style>
     /* dark mode */
-    .dark-mode-photo{
+    .dark-mode-photo {
       width: 35px;
-      position:  absolute;
-      top:-1px;
+      position: absolute;
+      top: -1px;
       left: 65px;
       background: white;
       border: solid white 2px;
@@ -38,10 +38,10 @@
       padding: 5px;
     }
 
-    .light-mode-photo{
+    .light-mode-photo {
       width: 35px;
-      position:  absolute;
-      top:-0.8px;
+      position: absolute;
+      top: -0.8px;
       right: 65px;
       background: white;
       border: solid white 2px;
@@ -147,6 +147,9 @@
       padding-right: 25px;
     }
 
+
+
+
     .ziman-button {
       font-size: 15px;
     }
@@ -166,11 +169,11 @@
     }
 
     @media (min-width:300px) and (max-width: 768px) {
-      .dark-mode-photo{
+      .dark-mode-photo {
         display: none;
       }
 
-      .light-mode-photo{
+      .light-mode-photo {
         display: none;
       }
 
@@ -219,8 +222,114 @@
         right: 18px;
       }
 
+    }
+
+    @media (min-width:425px) {
+
+
+      .maincontainer {
+        position: relative;
+        padding: 10px 65px 300px -100px;
+        margin-right: 20px;
+      }
 
     }
+
+    @media (min-width:768px) {
+
+
+      .maincontainer {
+        position: relative;
+        padding: 10px 65px 300px -100px;
+        margin-right: -5px;
+      }
+
+    }
+
+    @media (min-width:992px) {
+
+
+      .maincontainer {
+        position: relative;
+        padding: 10px 65px 300px -100px;
+        margin-right: -25px;
+      }
+
+    }
+
+    @media (min-width:1440px) {
+
+
+      .maincontainer {
+        position: relative;
+        padding: 10px 65px 300px -100px;
+        margin-right: 20px;
+      }
+
+    }
+
+
+
+
+
+
+
+
+
+    .top-select {
+      width: 355px;
+      margin-right: -10px;
+    }
+
+    @media (min-width:425px) {
+      .top-select {
+        width: 355px;
+        margin-right: 10px;
+      }
+    }
+
+    @media (min-width:500px) {
+      .top-select {
+        width: 355px;
+        margin-right: 60px;
+      }
+    }
+
+    @media (min-width:578px) {
+      .top-select {
+        width: 355px;
+        margin-right: 50px;
+      }
+    }
+
+    @media (min-width:768px) {
+      .top-select {
+        width: 355px;
+        margin-right: 150px;
+      }
+    }
+
+    @media (min-width:992px) {
+      .top-select {
+        width: 355px;
+        margin-right: 260px;
+      }
+    }
+
+    @media (min-width:1200px) {
+      .top-select {
+        width: 355px;
+        margin-right: 360px;
+      }
+    }
+
+    @media (min-width:1400px) {
+      .top-select {
+        width: 355px;
+        margin-right: 460px;
+      }
+    }
+
 
 
 
@@ -469,8 +578,6 @@
       font-size: 25px;
 
     }
-
-
   </style>
 
 
@@ -521,8 +628,6 @@
       var text = document.head;
       text.classList.toggle("black-text");
     }
-
-
   </script>
 
 </head>
@@ -587,113 +692,178 @@
         <img class="light-mode-photo" src="../images/light-mode-photo.png" alt="">
       </label>
 
-      <div class="row">
+      <br><br>
 
 
-        <!-- NEW BOOOOK -->
-      <div class="col-lg-4 col-md-6">
-        <li class="animals">
-          <hr>
-          <p class="book-name">نەفرەتی نەوت</p>
-          <hr>
-          <div class="maincontainer">
-            <div class="thecard">
-              <div class="thefront">
-                <img class="b" src="abori-images/1.jpeg" alt="">
-              </div>
-              <div class="theback">
-                <img class="b" src="abori-images/1b.jpeg" alt="">
-              </div>
-            </div>
-          </div>
-
-          <div class="wrab">
-            <details>
-              <summary class="head black-text">کورتیا پەڕتووکێ</summary>
-              <!-- eve ew dokmen seri ne -->
-              <ul class="top-ziman nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="ziman-button nav-link active" id="Badini" data-bs-toggle="tab" data-bs-target="#a1-tab-pane" type="button" role="tab" aria-controls="Badini-tab-pane" aria-selected="true">بادینی</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="ziman-button nav-link" id="Sorani" data-bs-toggle="tab" data-bs-target="#b1-tab-pane" type="button" role="tab" aria-controls="Sorani-tab-pane" aria-selected="false">سۆرانی</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="ziman-button nav-link" id="Arabic" data-bs-toggle="tab" data-bs-target="#c1-tab-pane" type="button" role="tab" aria-controls="Arabic-tab-pane" aria-selected="false">العربية</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="ziman-button nav-link" id="English" data-bs-toggle="tab" data-bs-target="#d1-tab-pane" type="button" role="tab" aria-controls="English-tab-pane" aria-selected="false">English</button>
-                </li>
-              </ul>
-              <!-- eve domahika wan dokmen seri ne -->
-
-              <!-- li vere de wan tishtan daxil key bo wan zimanen te diven -->
-              <div class="tab-content" id="myTabContent">
-
-                <!-- text Badini -->
-                <div class="tab-pane fade show active" id="a1-tab-pane" role="tabpanel" aria-labelledby="Badini" tabindex="0">
-                  <p class="More-details">
-                    ژلایێ : حەربیا ئەیوب محمود
-                    <br><br>
-                    نەفرەتا نەفتێ: چاوا سامانێ نەفتێ چارەنڤیسێ گەلان دیاردکەت؟
-                    <br><br>
-                    ژ نڤیسینا مایکڵ رۆس
-                    <br><br>
-                    ئەو وەلاتێن دەولەمەند ب نەفتێ کێمتر دیموکراسی یا تێدا هەی، جێگیربوونا ئابوری تێدا کێمترە، هەروەسا شەرێن ناڤخویی پتر ژ وەلاتێن بێ نەفت رویددەن
-                    <br><br>
-                    چ تشت نەفرەتا نەفتێ دروستدکەت؟
-                    <br><br>
-                    ئەرێ ئەو تشت دێ هێتە جێگیرکرن؟
-                    <br><br>
-                    دڤێ پەرتووکێ دا مایکڵ رۆس بەحس ژ وان وەلاتێن پێشکەفتی دکەت ئەوێن ب ڕێیا سامانێن کانزایی ئاڤابووین. و کا چاوا ئەو دشێن نەفتێ ژ نەفرەتێ بگوهورن بو بەرەکەتێ
-                  </p>
-                </div>
-                <!-- end text Badini -->
-
-                <!-- text sorani -->
-                <div class="tab-pane fade" id="b1-tab-pane" role="tabpanel" aria-labelledby="Sorani" tabindex="0">
-                  <p class="More-details">
-                    هەر کەسێک کورتکراوەی ئەم پەرتووکە بە زمانی کوردی زاراوەی سورانی هەبێ دەتوانێ بو ئێمە بینێرێ
-                    <br><br>
-                    07518405161
-                    <br><br>
-                    07508419579
-                  </p>
-                </div>
-                <!-- end text sorani -->
-
-                <!-- text arabic -->
-                <div class="tab-pane fade" id="c1-tab-pane" role="tabpanel" aria-labelledby="Arabic" tabindex="0">
-                  <p class="More-details">
-                  نرجوا ممن لديه مختصر أو إيجاز حول هذا الكتاب أن يرسله لنا مشكورا
-                    <br><br>
-                    07518405161
-                    <br><br>
-                    07508419579
-                  </p>
-                </div>
-                <!-- end text arabic -->
-
-                <!-- text english -->
-                <div class="tab-pane fade" id="d1-tab-pane" role="tabpanel" aria-labelledby="English" tabindex="0">
-                  <p class="More-details">
-                    If you have the book synopsis, please share it with us
-                    <br><br>
-                    07518405161
-                    <br><br>
-                    07508419579
-                  </p>
-                </div>
-                <!-- end text english -->
-
-              </div>
-              <!-- li ser vere de wan tishtan daxil key bo wan zimanen te diven -->
-
-            </details>
-          </div>
+      <!-- eve ew dokmen seri ne -->
+      <ul class="top-select nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="ziman-button nav-link active" id="Korti" data-bs-toggle="tab" data-bs-target="#Korti-tab-pane" type="button" role="tab" aria-controls="korti-tab-pane" aria-selected="true">کورتیێن پەرتووکان</button>
         </li>
+        <li class="nav-item" role="presentation">
+          <button class="ziman-button nav-link" id="Pdf" data-bs-toggle="tab" data-bs-target="#Pdf-tab-pane" type="button" role="tab" aria-controls="pdf-tab-pane" aria-selected="false">پەرتووک ب شێوێ pdf</button>
+        </li>
+      </ul>
+      <br><br><br>
+      <!-- eve domahika wan dokmen seri ne -->
+
+
+      <div class="tab-content" id="myTabContent">
+        <!-- ****************************************************************************************************************** -->
+        <!--                                        کورتیێن  پەرتووکان                                                              -->
+        <!-- ****************************************************************************************************************** -->
+        <div class="tab-pane fade show active" id="Korti-tab-pane" role="tabpanel" aria-labelledby="Korti" tabindex="0">
+
+          <div class="row">
+
+
+            <!-- NEW BOOOOK -->
+            <div class="col-lg-4 col-md-6">
+              <li class="animals">
+                <hr>
+                <p class="book-name">نەفرەتی نەوت</p>
+                <hr>
+                <div class="maincontainer">
+                  <div class="thecard">
+                    <div class="thefront">
+                      <img class="b" src="abori-images/1.jpeg" alt="">
+                    </div>
+                    <div class="theback">
+                      <img class="b" src="abori-images/1b.jpeg" alt="">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wrab">
+                  <details>
+                    <summary class="head black-text">کورتیا پەڕتووکێ</summary>
+                    <!-- eve ew dokmen seri ne -->
+                    <ul class="top-ziman nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="ziman-button nav-link active" id="Badini" data-bs-toggle="tab" data-bs-target="#a1-tab-pane" type="button" role="tab" aria-controls="Badini-tab-pane" aria-selected="true">بادینی</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="ziman-button nav-link" id="Sorani" data-bs-toggle="tab" data-bs-target="#b1-tab-pane" type="button" role="tab" aria-controls="Sorani-tab-pane" aria-selected="false">سۆرانی</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="ziman-button nav-link" id="Arabic" data-bs-toggle="tab" data-bs-target="#c1-tab-pane" type="button" role="tab" aria-controls="Arabic-tab-pane" aria-selected="false">العربية</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="ziman-button nav-link" id="English" data-bs-toggle="tab" data-bs-target="#d1-tab-pane" type="button" role="tab" aria-controls="English-tab-pane" aria-selected="false">English</button>
+                      </li>
+                    </ul>
+                    <!-- eve domahika wan dokmen seri ne -->
+
+                    <!-- li vere de wan tishtan daxil key bo wan zimanen te diven -->
+                    <div class="tab-content" id="myTabContent">
+
+                      <!-- text Badini -->
+                      <div class="tab-pane fade show active" id="a1-tab-pane" role="tabpanel" aria-labelledby="Badini" tabindex="0">
+                        <p class="More-details">
+                          ژلایێ : حەربیا ئەیوب محمود
+                          <br><br>
+                          نەفرەتا نەفتێ: چاوا سامانێ نەفتێ چارەنڤیسێ گەلان دیاردکەت؟
+                          <br><br>
+                          ژ نڤیسینا مایکڵ رۆس
+                          <br><br>
+                          ئەو وەلاتێن دەولەمەند ب نەفتێ کێمتر دیموکراسی یا تێدا هەی، جێگیربوونا ئابوری تێدا کێمترە، هەروەسا شەرێن ناڤخویی پتر ژ وەلاتێن بێ نەفت رویددەن
+                          <br><br>
+                          چ تشت نەفرەتا نەفتێ دروستدکەت؟
+                          <br><br>
+                          ئەرێ ئەو تشت دێ هێتە جێگیرکرن؟
+                          <br><br>
+                          دڤێ پەرتووکێ دا مایکڵ رۆس بەحس ژ وان وەلاتێن پێشکەفتی دکەت ئەوێن ب ڕێیا سامانێن کانزایی ئاڤابووین. و کا چاوا ئەو دشێن نەفتێ ژ نەفرەتێ بگوهورن بو بەرەکەتێ
+                        </p>
+                      </div>
+                      <!-- end text Badini -->
+
+                      <!-- text sorani -->
+                      <div class="tab-pane fade" id="b1-tab-pane" role="tabpanel" aria-labelledby="Sorani" tabindex="0">
+                        <p class="More-details">
+                          هەر کەسێک کورتکراوەی ئەم پەرتووکە بە زمانی کوردی زاراوەی سورانی هەبێ دەتوانێ بو ئێمە بینێرێ
+                          <br><br>
+                          07518405161
+                          <br><br>
+                          07508419579
+                        </p>
+                      </div>
+                      <!-- end text sorani -->
+
+                      <!-- text arabic -->
+                      <div class="tab-pane fade" id="c1-tab-pane" role="tabpanel" aria-labelledby="Arabic" tabindex="0">
+                        <p class="More-details">
+                          نرجوا ممن لديه مختصر أو إيجاز حول هذا الكتاب أن يرسله لنا مشكورا
+                          <br><br>
+                          07518405161
+                          <br><br>
+                          07508419579
+                        </p>
+                      </div>
+                      <!-- end text arabic -->
+
+                      <!-- text english -->
+                      <div class="tab-pane fade" id="d1-tab-pane" role="tabpanel" aria-labelledby="English" tabindex="0">
+                        <p class="More-details">
+                          If you have the book synopsis, please share it with us
+                          <br><br>
+                          07518405161
+                          <br><br>
+                          07508419579
+                        </p>
+                      </div>
+                      <!-- end text english -->
+
+                    </div>
+                    <!-- li ser vere de wan tishtan daxil key bo wan zimanen te diven -->
+
+                  </details>
+                </div>
+              </li>
+            </div>
+            <!-- END OF NEW BOOOOK -->
+
+
+
+          </div>
+        </div>
+
+
+
+
+        <!-- ****************************************************************************************************************** -->
+        <!--                                       پەرتووک ب شێوێ pdf                                                           -->
+        <!-- ****************************************************************************************************************** -->
+
+
+        <div class="tab-pane fade" id="Pdf-tab-pane" role="tabpanel" aria-labelledby="Pdf" tabindex="0">
+
+          <style>
+            .PDF-BOOK {
+              height: 500px;
+              width: 100%;
+              border: none;
+              border-radius: 10px;
+              margin-right: -5px;
+            }
+
+
+          </style>
+
+          <div class="container center-pdf">
+            <div class="row">
+
+
+              <!-- start pdf book -->
+              <center>
+                <h1 style="opacity:0.7">لیستە یا ڤالا یە</h1>
+              </center>
+              <!-- end of pdf book -->
+
+            </div>
+
+          </div>
+        </div>
       </div>
-      <!-- END OF NEW BOOOOK -->
 
 
 
@@ -701,10 +871,6 @@
 
 
 
-
-
-
-      </div>
     </div>
   </main>
   <!-- =============================================== li vere de code min bi duhamik het ================================== -->
